@@ -9,7 +9,8 @@ interface IInputProps {
 
 const Input = ({ label, type, register, error }: IInputProps) => (
   <fieldset>
-    <fieldset label={label} type={type} {...register} />
+    <label>{label}</label>
+    <input type={type} {...register} />
     {error ? <span>Erro</span> : null}
   </fieldset>
 );
