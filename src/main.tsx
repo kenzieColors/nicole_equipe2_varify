@@ -1,15 +1,18 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
+import { VarProvider } from "./providers/VarContext/VarContext";
 import { UserProvider } from "./providers/UserContext/UserContext";
 import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      <VarProvider>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </VarProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
