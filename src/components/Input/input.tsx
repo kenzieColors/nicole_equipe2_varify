@@ -1,16 +1,16 @@
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { TextField } from "@mui/material";
 
 interface IInputProps {
   label: string;
   type: "text" | "email" | "password";
-  register: UseFormRegisterReturn;
+  register: UseFormRegisterReturn<string>;
   error?: FieldError;
 }
 
-const Input = ({ label, type, register, error }: IInputProps) => (
+export const Input = ({ label, type, register, error }: IInputProps) => (
   <fieldset>
-    <label>{label}</label>
-    <input type={type} {...register} />
+    <TextField label={label} type={type} {...register} />
     {error ? <span>Erro</span> : null}
   </fieldset>
 );
