@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 
 interface IInputProps {
   label: string;
-  type: "text" | "email" | "password";
+  type: "text" | "email" | "password" | "number";
   register: UseFormRegisterReturn<string>;
   error?: FieldError;
 }
