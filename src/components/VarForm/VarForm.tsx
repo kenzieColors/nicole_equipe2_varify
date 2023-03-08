@@ -5,10 +5,16 @@ interface iVarFormProps {
   children: React.ReactNode;
   checkbox?: boolean;
   label: string;
+  onChangeFunction: (event: any) => void;
 }
 
-export const VarForm = ({ children, checkbox, label }: iVarFormProps) => (
-  <StyledForm>
+export const VarForm = ({
+  children,
+  checkbox,
+  label,
+  onChangeFunction,
+}: iVarFormProps) => (
+  <StyledForm onChange={onChangeFunction}>
     {checkbox ? (
       <div>
         <Checkbox
