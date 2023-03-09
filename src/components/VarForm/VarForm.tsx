@@ -1,32 +1,37 @@
 import { Checkbox } from "@mui/material";
-import { StyledForm } from "../../styles/components/form";
+import { StyledFieldSet } from "./style";
 
 interface iVarFormProps {
   children: React.ReactNode;
   checkbox?: boolean;
-  label: string;
+  name: string;
   onChangeFunction: (event: any) => void;
 }
 
 export const VarForm = ({
   children,
   checkbox,
-  label,
+  name,
   onChangeFunction,
 }: iVarFormProps) => (
-  <StyledForm onChange={onChangeFunction}>
+  <StyledFieldSet>
     {checkbox ? (
-      <div>
-        <Checkbox
-          onChange={() => {
-            console.log("teste");
-          }}
-        />
-        <span>{label}</span>
-      </div>
+      <>
+        <legend>
+          <Checkbox
+            onChange={() => {
+              console.log("teste");
+            }}
+          />
+          {name}
+        </legend>
+        <form onChange={onChangeFunction}>{children}</form>
+      </>
     ) : (
-      <span>{label}</span>
+      <>
+        <legend>{name}</legend>
+        <form onChange={onChangeFunction}>{children}</form>
+      </>
     )}
-    {children}
-  </StyledForm>
+  </StyledFieldSet>
 );
