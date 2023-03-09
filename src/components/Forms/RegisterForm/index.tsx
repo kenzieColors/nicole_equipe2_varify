@@ -6,6 +6,7 @@ import { IRegisterFormValues } from "../../../providers/@types";
 import { UserContext } from "../../../providers/UserContext";
 import Input from "../Input";
 import { schema } from "./validations";
+import Header from "../../Header";
 
 const RegisterForm = () => {
   const {
@@ -24,12 +25,15 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Input label="Nome" type="text" register={register("name")} />
-      <Input label="E-mail" type="email" register={register("email")} />
-      <Input label="Senha" type="password" register={register("password")} />
-      <button type="submit">Cadastre-se</button>
-    </form>
+    <>
+      <Header />
+      <form onSubmit={handleSubmit(submit)}>
+        <Input label="Nome" type="text" register={register("name")} />
+        <Input label="E-mail" type="email" register={register("email")} />
+        <Input label="Senha" type="password" register={register("password")} />
+        <button type="submit">Cadastre-se</button>
+      </form>
+    </>
   );
 };
 

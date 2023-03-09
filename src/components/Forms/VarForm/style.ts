@@ -7,6 +7,13 @@ export const StyledFieldSet = styled.fieldset`
   border: 2px solid #ef8c00;
   border-radius: 5px;
 
+  color: #ef8c00;
+
+  width: 100%;
+  max-width: 240px;
+
+  font-weight: 300;
+
   form {
     display: flex;
     flex-direction: column;
