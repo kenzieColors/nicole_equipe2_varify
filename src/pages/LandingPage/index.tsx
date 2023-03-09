@@ -17,6 +17,11 @@ const LandingPage = () => {
   } = useContext(VarContext);
 
   return (
+  <>
+    <div>
+    <Header />
+    <FormCheckBox></FormCheckBox>
+  </div>
     <StyledMain>
       <div className="upperForms">
         <VarForm
@@ -96,6 +101,7 @@ const LandingPage = () => {
         </VarForm>
       </div>
     </StyledMain>
+    </>
   );
 };
 
