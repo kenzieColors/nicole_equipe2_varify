@@ -8,6 +8,7 @@ export const StyleTextField = styled(TextField)`
   }
   label {
     color: #8b8b8b;
-    font-size: 0.8rem;
+
+    font-size: 1rem;
   }
 `;
