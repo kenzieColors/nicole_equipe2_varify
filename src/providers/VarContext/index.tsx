@@ -1,42 +1,16 @@
 import { createContext, useState } from "react";
+import { IVarContext, IVarContextProps, IColors, ISize } from "../@types";
 
-interface iVarContext {
-  colors: iColors;
-  titles: iSize;
-  texts: iSize;
-  radius: iSize;
-  changeColors: (id: string, value: string) => void;
-  changeTitles: (id: string, value: number) => void;
-  changeTexts: (id: string, value: number) => void;
-  changeRadius: (id: string, value: number) => void;
-}
+export const VarContext = createContext({} as IVarContext);
 
-interface iVarContextProps {
-  children: React.ReactNode;
-}
+export const VarProvider = ({ children }: IVarContextProps) => {
+  const [colors, setColors] = useState<IColors>({});
 
-interface iColors {
-  primary?: string;
-  secondary?: string;
-  tertiary?: string;
-}
+  const [titles, setTitles] = useState<ISize>({});
 
-interface iSize {
-  size1?: number;
-  size2?: number;
-  size3?: number;
-}
+  const [texts, setTexts] = useState<ISize>({});
 
-export const VarContext = createContext({} as iVarContext);
-
-export const VarProvider = ({ children }: iVarContextProps) => {
-  const [colors, setColors] = useState<iColors>({});
-
-  const [titles, setTitles] = useState<iSize>({});
-
-  const [texts, setTexts] = useState<iSize>({});
-
-  const [radius, setRadius] = useState<iSize>({});
+  const [radius, setRadius] = useState<ISize>({});
 
   const changeColors = (id: string, value: string) => {
     if (id == "primary") {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { LoginForm } from "../../components/Forms/LoginForm";
+import LoginForm from "../../components/Forms/LoginForm";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <>
       <LoginForm />
@@ -10,4 +10,4 @@ export const LoginPage = () => {
   );
 };
 
-
+export default LoginPage;

@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom"
-import { RegisterForm } from "../../components/Forms/RegisterForm"
+import { Link } from "react-router-dom";
+import RegisterForm from "../../components/Forms/RegisterForm";
 
-
-export const RegisterPage = () => {
+const RegisterPage = () => {
   return (
     <>
-    <Link to="/login">Voltar</Link>
+      <Link to="/login">Voltar</Link>
       <RegisterForm />
     </>
-  )
-}
+  );
+};
 
-
+export default RegisterPage;

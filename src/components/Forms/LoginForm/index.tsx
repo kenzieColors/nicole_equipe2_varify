@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { ILoginFormValues } from "../../../providers/@types";
-import { UserContext } from "../../../providers/UserContext/UserContext";
-import { Input } from "../../Input/input";
+import { UserContext } from "../../../providers/UserContext";
+import Input from "../Input";
 
-export const LoginForm = () => {
-const { userLogin } = useContext(UserContext);
+const LoginForm = () => {
+  const { userLogin } = useContext(UserContext);
 
   const {
     register,
@@ -13,9 +13,9 @@ const { userLogin } = useContext(UserContext);
     formState: { errors },
   } = useForm<ILoginFormValues>();
 
-const submit: SubmitHandler<ILoginFormValues> = (formData) => {
-userLogin(formData)
-};
+  const submit: SubmitHandler<ILoginFormValues> = (formData) => {
+    userLogin(formData);
+  };
 
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -29,3 +29,5 @@ userLogin(formData)
     </form>
   );
 };
+
+export default LoginForm;

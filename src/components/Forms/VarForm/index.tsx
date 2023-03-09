@@ -8,7 +8,7 @@ interface iVarFormProps {
   onChangeFunction: (event: any) => void;
 }
 
-export const VarForm = ({
+const VarForm = ({
   children,
   checkbox,
   name,
@@ -35,3 +35,5 @@ export const VarForm = ({
     )}
   </StyledFieldSet>
 );
+
+export default VarForm;

@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler } from "react-hook-form/dist/types";
 import { IRegisterFormValues } from "../../../providers/@types";
-import { UserContext } from "../../../providers/UserContext/UserContext";
-import { Input } from "../../Input/input";
+import { UserContext } from "../../../providers/UserContext";
+import Input from "../Input";
 import { schema } from "./validations";
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
   const {
     register,
     handleSubmit,
@@ -20,7 +20,7 @@ export const RegisterForm = () => {
 
   const submit: SubmitHandler<IRegisterFormValues> = (formData) => {
     userRegister(formData);
-    console.log(formData)
+    console.log(formData);
   };
 
   return (
@@ -32,3 +32,5 @@ export const RegisterForm = () => {
     </form>
   );
 };
+
+export default RegisterForm;

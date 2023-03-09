@@ -26,3 +26,30 @@ export interface IUserContext {
   userLogin: (formData: ILoginFormValues) => Promise<void>;
   userLogout: () => void;
 }
+
+export interface IVarContext {
+  colors: iColors;
+  titles: iSize;
+  texts: iSize;
+  radius: iSize;
+  changeColors: (id: string, value: string) => void;
+  changeTitles: (id: string, value: number) => void;
+  changeTexts: (id: string, value: number) => void;
+  changeRadius: (id: string, value: number) => void;
+}
+
+export interface IVarContextProps {
+  children: React.ReactNode;
+}
+
+export interface IColors {
+  primary?: string;
+  secondary?: string;
+  tertiary?: string;
+}
+
+export interface ISize {
+  size1?: number;
+  size2?: number;
+  size3?: number;
+}

@@ -1,7 +1,5 @@
-import React from "react";
 import { LogoLink, TopHeader, TopLink } from "./style";
 import varify from "../../assets/varify.png";
-import LandingPage from "../../pages/LandingPage/index";
 
 const Header = () => (
   <TopHeader>
