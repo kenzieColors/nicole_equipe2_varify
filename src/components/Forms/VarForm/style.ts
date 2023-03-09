@@ -10,7 +10,6 @@ export const StyledFieldSet = styled.fieldset`
   color: #ef8c00;
 
   width: 100%;
-  max-width: 240px;
 
   font-weight: 300;
 

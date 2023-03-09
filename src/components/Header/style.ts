@@ -2,13 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const TopHeader = styled.header`
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-
   width: 100%;
-  max-width: 1300px;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 20px;
 
   background-color: #212529;
   border-bottom: solid 1px #8b8b8b;
@@ -20,9 +17,6 @@ export const TopHeader = styled.header`
   align-items: center;
 
   gap: 20px;
-
-  margin: 0 auto;
-  padding: 12px;
 
   nav {
     padding: 12px;
