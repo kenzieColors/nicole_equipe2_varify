@@ -19,9 +19,8 @@ const LandingPage = () => {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      <Header />
+
       <StyledMain>
         <div className="upperForms">
           <VarForm

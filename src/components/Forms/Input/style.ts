@@ -5,4 +5,5 @@ export const FieldSet = styled.fieldset`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: blue;
 `;
