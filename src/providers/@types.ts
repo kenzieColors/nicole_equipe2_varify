@@ -28,10 +28,10 @@ export interface IUserContext {
 }
 
 export interface IVarContext {
-  colors: iColors;
-  titles: iSize;
-  texts: iSize;
-  radius: iSize;
+  colors: IColors;
+  titles: ISize;
+  texts: ISize;
+  radius: ISize;
   changeColors: (id: string, value: string) => void;
   changeTitles: (id: string, value: number) => void;
   changeTexts: (id: string, value: number) => void;
@@ -52,4 +52,12 @@ export interface ISize {
   size1?: number;
   size2?: number;
   size3?: number;
+}
+
+export interface IToastifyContextProps {
+  children: React.ReactNode;
+}
+
+export interface IContextProps {
+  children: React.ReactNode;
 }
