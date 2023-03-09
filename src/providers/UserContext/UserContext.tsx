@@ -1,23 +1,64 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { api } from "../../services/api";
+import { useNavigate } from "react-router-dom";
+import { IUserContext, IDefaultProviderProps, IUser, IRegisterFormValues, ILoginFormValues } from "../@types";
 
-interface iUserContext {
-  user: iUser | null;
-}
+export const UserContext = createContext({} as IUserContext);
 
-interface iUserContextProps {
-  children: React.ReactNode;
-}
+export const UserProvider = ({ children }: IDefaultProviderProps) => {
+  const [user, setUser] = useState<IUser | null>(null);
 
-interface iUser {
-  id: number;
-}
+  const navigate = useNavigate();
 
-export const UserContext = createContext({} as iUserContext);
+  // const autoLoginUser = () => {
+  //     const token = localStorage.getItem("@Token")
 
-export const UserProvider = ({ children }: iUserContextProps) => {
-  const [user, setUser] = useState<iUser | null>(null);
+  //     try {
+
+  //     } catch (error) {
+  //         console.log(error)
+  //     }
+  // };
+
+  // useEffect(() => {
+
+  // }, []);
+
+  const userRegister = async (formData: IRegisterFormValues) => {
+    try {
+      const response = await api.post("/register", formData);
+      setUser(response.data.user);
+      localStorage.setItem("@Token", response.data.accessToken);
+      //adicionar toast de confirmação
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const userLogin = async (formData: ILoginFormValues) => {
+    try {
+      const response = await api.post("/login", formData);
+      setUser(response.data.user);
+      localStorage.setItem("@Token", response.data.accessToken);
+      //adicionar toast de confirmação
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const userLogout = () => {
+    setUser(null);
+    localStorage.removeItem("@Token");
+    //adicionar toast de confirmação
+    navigate("/");
+  };
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{user, setUser, userRegister, userLogin, userLogout}}>
+      {children}
+    </UserContext.Provider>
   );
 };
+
