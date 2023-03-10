@@ -16,7 +16,7 @@ const UserSavedVars = () => {
     <div>
       {userVars.map((savedVar: IUserSavedVars) => {
         console.log(savedVar);
-        return <UserSavedVarsCard {...savedVar} />;
+        return <UserSavedVarsCard {...savedVar} key={savedVar.id} />;
       })}
     </div>
   );
