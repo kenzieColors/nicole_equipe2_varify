@@ -22,6 +22,7 @@ const VarForm = ({
         <>
           <legend>
             <Checkbox
+              className="check"
               onChange={() => {
                 setFormDisable(!formDisable);
               }}
