@@ -15,7 +15,7 @@ export const StyledMain = styled.main`
 
   .upperForms > fieldset,
   .upperForms > div {
-    width: 50%;
+    width: 46%;
   }
 
   .lowerForms {
@@ -23,6 +23,6 @@ export const StyledMain = styled.main`
   }
 
   .lowerForms > fieldset {
-    width: 30%;
+    width: 28%;
   }
 `;
