@@ -4,18 +4,30 @@ export const StyledFieldSet = styled.fieldset`
   display: flex;
   flex-direction: column;
 
-  border: 2px solid #ef8c00;
-  border-radius: 5px;
+  border: 2px solid var(--color-brand-4);
+  border-radius: var(--radius-default);
 
-  color: #ef8c00;
+  color: var(--color-brand-4);
 
+  padding: 1rem;
   width: 100%;
 
-  font-weight: 300;
+  margin: 4px;
+
+  font-weight: var(--font-weight-3);
 
   form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .check {
+    color: var(--color-brand-1);
+  }
+  @media (min-width: 769px) {
+    legend {
+      font-size: 1.2rem;
+    }
   }
 `;

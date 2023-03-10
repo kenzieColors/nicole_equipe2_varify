@@ -71,8 +71,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     background-color: #212529;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+    height: 100vh;
   }
 
   button{
