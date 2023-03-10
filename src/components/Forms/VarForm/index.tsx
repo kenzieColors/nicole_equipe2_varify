@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Checkbox } from "@mui/material";
 import { StyledFieldSet } from "./style";
 
@@ -13,27 +14,30 @@ const VarForm = ({
   checkbox,
   name,
   onChangeFunction,
-}: iVarFormProps) => (
-  <StyledFieldSet>
-    {checkbox ? (
-      <>
-        <legend>
-          <Checkbox
-            onChange={() => {
-              console.log("teste");
-            }}
-          />
-          {name}
-        </legend>
-        <form onChange={onChangeFunction}>{children}</form>
-      </>
-    ) : (
-      <>
-        <legend>{name}</legend>
-        <form onChange={onChangeFunction}>{children}</form>
-      </>
-    )}
-  </StyledFieldSet>
-);
+}: iVarFormProps) => {
+  const [formDisable, setFormDisable] = useState(false);
+  return (
+    <StyledFieldSet disabled={formDisable}>
+      {checkbox ? (
+        <>
+          <legend>
+            <Checkbox
+              onChange={() => {
+                setFormDisable(!formDisable);
+              }}
+            />
+            {name}
+          </legend>
+          <form onChange={onChangeFunction}>{children}</form>
+        </>
+      ) : (
+        <>
+          <legend>{name}</legend>
+          <form onChange={onChangeFunction}>{children}</form>
+        </>
+      )}
+    </StyledFieldSet>
+  );
+};
 
 export default VarForm;
