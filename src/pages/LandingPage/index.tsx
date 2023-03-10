@@ -22,7 +22,7 @@ const LandingPage = () => {
       <Header />
 
       <StyledMain>
-        <div className="upperForms">
+        <div className="upperFors">
           <VarForm
             onChangeFunction={(event) => {
               const colorID = event.target.id;
