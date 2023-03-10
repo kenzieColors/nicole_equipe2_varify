@@ -13,6 +13,7 @@ const StyledRegisterPage = styled.main`
     
     h2{
       color: var(--grey-500);
+      text-align: center;
     }
   }
 

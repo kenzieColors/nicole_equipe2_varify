@@ -16,6 +16,8 @@ const StyledRegisterForm = styled.form`
     color: var(--grey-0);
     font-weight: 500;
     font-size: 1rem;
+    width: fit-content;
+    align-self: center;
 
     :hover{
       background-color: #F8F9FA50;
