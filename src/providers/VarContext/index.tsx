@@ -57,6 +57,23 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     }
   };
 
+  const globalVarGenerator = () => {
+    let colorPrimary = "";
+    let colorSecondary = "";
+
+    if (colors.primary) {
+      colorPrimary = `--color-brand-1: ${colors.primary}`;
+    }
+    if (colors.secondary) {
+      colorSecondary = `--color-brand-2: ${colors.secondary}`;
+    }
+
+    console.log(`
+    ${colorPrimary}
+    ${colorSecondary}`);
+  };
+
+  globalVarGenerator();
   return (
     <VarContext.Provider
       value={{

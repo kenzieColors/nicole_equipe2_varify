@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Header from "../../components/Header";
 import { StyledMain } from "./style";
 import VarForm from "../../components/Forms/VarForm";
 import Input from "../../components/Forms/Input";
 import { VarContext } from "../../providers/VarContext";
-
+import { useCopyToClipboard } from "usehooks-ts";
+import TextField from "@mui/material/TextField";
 const LandingPage = () => {
   const {
     colors,
@@ -17,12 +18,13 @@ const LandingPage = () => {
     changeRadius,
   } = useContext(VarContext);
 
+  const [value, copy] = useCopyToClipboard();
   return (
     <>
       <Header />
 
       <StyledMain>
-        <div className="upperFors">
+        <div className="upperForms">
           <VarForm
             onChangeFunction={(event) => {
               const colorID = event.target.id;
@@ -35,26 +37,23 @@ const LandingPage = () => {
             <Input label="Cor secundária" id="secondary" type="text"></Input>
             <Input label="Cor terciária" id="tertiary" type="text"></Input>
           </VarForm>
-          <div>
-            {colors?.primary ? <p>--color-primary: {colors?.primary}</p> : null}
-            {colors?.secondary ? (
-              <p>--color-secondary: {colors?.secondary}</p>
-            ) : null}
-            {colors?.tertiary ? (
-              <p>--color-tertiary: {colors?.tertiary}</p>
-            ) : null}
-            {colors?.tertiary ? (
-              <p>--color-tertiary: {colors?.tertiary}</p>
-            ) : null}
-            {titles?.size1 ? <p>--title-1: {titles?.size1}</p> : null}
-            {titles?.size2 ? <p>--title-2: {titles?.size2}</p> : null}
-            {titles?.size3 ? <p>--title-3: {titles?.size3}</p> : null}
-            {texts?.size1 ? <p>--font-1</p> : null}
-            {texts?.size2 ? <p>--font-2</p> : null}
-            {texts?.size3 ? <p>--font-3</p> : null}
-            {radius?.size1 ? <p>--radius-1</p> : null}
-            {radius?.size2 ? <p>--radius-2</p> : null}
-          </div>
+          <TextField InputProps={{ readOnly: true }}>
+            {/* {colors?.primary ? `--color-primary: ${colors?.primary} ` : null}
+            {colors?.secondary
+              ? `--color-secondary: ${colors?.secondary}`
+              : null}
+            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
+            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
+            {titles?.size1 ? `--title-1: ${titles?.size1}` : null}
+            {titles?.size2 ? `--title-2: ${titles?.size2}` : null}
+            {titles?.size3 ? `--title-3: ${titles?.size3}` : null}
+            {texts?.size1 ? `--font-1: ${texts.size1}` : null}
+            {texts?.size2 ? `--font-2: ${texts.size2}` : null}
+            {texts?.size3 ? `--font-3: ${texts.size3}` : null}
+            {radius?.size1 ? `--radius-1: ${radius.size1} ` : null}
+            {radius?.size2 ? `--radius-2: ${radius.size2}` : null} */}
+            <button onClick={() => copy("teste")}>Teste</button>
+          </TextField>
         </div>
         <div className="lowerForms">
           <VarForm
