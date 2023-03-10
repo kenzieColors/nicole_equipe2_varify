@@ -31,6 +31,9 @@ export interface IVarContext {
   variables: IVariables;
   changeVariables: (id: string, value: string | number) => void;
   globalVarGenerator: () => string;
+  userVars: IUserSavedVars[];
+  setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
+  requestUserSavedVars: (userId: number) => Promise<void>;
 }
 
 export interface IVarContextProps {
@@ -58,4 +61,13 @@ export interface IToastifyContextProps {
 
 export interface IContextProps {
   children: React.ReactNode;
+}
+
+export interface IUserSavedVars {
+  userId: number;
+  colors: string[];
+  titles: number[];
+  texts: number[];
+  radius: number[];
+  id: number;
 }
