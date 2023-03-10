@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Header from "../../components/Header";
 import { StyledMain } from "./style";
 import VarForm from "../../components/Forms/VarForm";
@@ -10,16 +10,8 @@ import { LogoLink, TopLink } from "../../components/Header/style";
 import varify from "../../assets/varify.png";
 
 const LandingPage = () => {
-  const {
-    colors,
-    titles,
-    texts,
-    radius,
-    changeColors,
-    changeTitles,
-    changeTexts,
-    changeRadius,
-  } = useContext(VarContext);
+  const { variables, changeVariables, globalVarGenerator } =
+    useContext(VarContext);
 
   const [value, copy] = useCopyToClipboard();
   return (
@@ -45,7 +37,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const colorID = event.target.id;
               const colorValue = event.target.value;
-              changeColors(colorID, colorValue);
+              changeVariables(colorID, colorValue);
             }}
             name="Cores"
           >
@@ -53,14 +45,15 @@ const LandingPage = () => {
             <Input label="Cor secundária" id="secondary" type="text"></Input>
             <Input label="Cor terciária" id="tertiary" type="text"></Input>
           </VarForm>
-
+        </div>
+        <div className="lowerForms">
           {/* <div className="lowerForms"> */}
           <VarForm
             checkbox
             onChangeFunction={(event) => {
               const titleID = event.target.id;
               const titleValue = event.target.value;
-              changeTitles(titleID, titleValue);
+              changeVariables(titleID, titleValue);
             }}
             name="Títulos"
           >
@@ -74,7 +67,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const textId = event.target.id;
               const textValue = event.target.value;
-              changeTexts(textId, textValue);
+              changeVariables(textId, textValue);
             }}
             name="Textos"
           >
@@ -88,7 +81,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const radiusID = event.target.id;
               const radiusValue = event.target.value;
-              changeRadius(radiusID, radiusValue);
+              changeVariables(radiusID, radiusValue);
             }}
             name="Radius"
           >
@@ -101,22 +94,12 @@ const LandingPage = () => {
 
         <fieldset className="titleBoxField">
           <legend>Váriaveis globais</legend>
-          <TextField className="boxTextField" InputProps={{ readOnly: true }}>
-            {/* {colors?.primary ? `--color-primary: ${colors?.primary} ` : null}
-            {colors?.secondary
-              ? `--color-secondary: ${colors?.secondary}`
-              : null}
-            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
-            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
-            {titles?.size1 ? `--title-1: ${titles?.size1}` : null}
-            {titles?.size2 ? `--title-2: ${titles?.size2}` : null}
-            {titles?.size3 ? `--title-3: ${titles?.size3}` : null}
-            {texts?.size1 ? `--font-1: ${texts.size1}` : null}
-            {texts?.size2 ? `--font-2: ${texts.size2}` : null}
-            {texts?.size3 ? `--font-3: ${texts.size3}` : null}
-            {radius?.size1 ? `--radius-1: ${radius.size1} ` : null}
-            {radius?.size2 ? `--radius-2: ${radius.size2}` : null} */}
-            <button onClick={() => copy("teste")}>Teste</button>
+          <TextField
+            className="boxTextField"
+            value={globalVarGenerator()}
+            InputProps={{ readOnly: true }}
+          >
+            <button onClick={() => copy(globalVarGenerator())}>Teste</button>
           </TextField>
         </fieldset>
       </StyledMain>
