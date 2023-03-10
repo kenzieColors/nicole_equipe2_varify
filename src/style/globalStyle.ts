@@ -42,6 +42,39 @@ export const GlobalStyle = createGlobalStyle`
     --radius-default: 4px;
   }
 
+
+// Typography
+  .title-1 {
+    font-size: 1.25rem; /*20px */
+    font-weight: 600;
+  }
+
+  .title-2 {
+    font-size: 1rem; /*16px */
+    font-weight: 600;
+  }
+
+  .title-3 {
+    font-size: 0.875rem; /*14px */
+    font-weight: 500;
+  }
+
+  .text-1 {
+    font-size: 0.75rem; /*12px */
+    font-weight: 400;
+  }
+
+  .text-2 {
+    font-size: 0.563rem; /*9px */
+    font-weight: 500;
+  }
+
+  body{
+    background-color: #212529;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
   button{
     cursor: pointer;
   }
