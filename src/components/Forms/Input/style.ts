@@ -8,4 +8,6 @@ export const FieldSet = styled.fieldset`
   gap: 8px;
 
   border: none;
+
+  width: 100%;
 `;
