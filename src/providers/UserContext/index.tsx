@@ -7,6 +7,7 @@ export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
+  console.log(user)
 
   const navigate = useNavigate();
 
@@ -27,8 +28,9 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const userRegister = async (formData: IRegisterFormValues) => {
     try {
       const response = await api.post("/register", formData);
-      setUser(response.data.user);
-      localStorage.setItem("@Token", response.data.accessToken);
+      console.log(response)
+      // setUser(response.data.user);
+      // localStorage.setItem("@Token", response.data.accessToken);
       //adicionar toast de confirmação
       navigate("/");
     } catch (error) {

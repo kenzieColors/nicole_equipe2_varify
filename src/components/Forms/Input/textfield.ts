@@ -5,6 +5,7 @@ export const StyleTextField = styled(TextField)`
   input {
     background-color: #3f3f3f;
     border-radius: 8px;
+    /* width: 100%; */
   }
   label {
     color: #8b8b8b;

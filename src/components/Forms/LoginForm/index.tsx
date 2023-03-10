@@ -4,6 +4,7 @@ import { ILoginFormValues } from "../../../providers/@types";
 import { UserContext } from "../../../providers/UserContext";
 import Header from "../../Header";
 import Input from "../Input";
+import StyledLoginForm from "./style";
 
 const LoginForm = () => {
   const { userLogin } = useContext(UserContext);
@@ -20,8 +21,8 @@ const LoginForm = () => {
 
   return (
     <>
-      <Header />
-      <form onSubmit={handleSubmit(submit)}>
+      {/* <Header /> */}
+      <StyledLoginForm onSubmit={handleSubmit(submit)}>
         <Input label="Seu e-mail" type="email" register={register("email")} />
         <Input
           label="Sua senha"
@@ -29,7 +30,7 @@ const LoginForm = () => {
           register={register("password")}
         />
         <button type="submit">Entrar</button>
-      </form>
+      </StyledLoginForm>
     </>
   );
 };
