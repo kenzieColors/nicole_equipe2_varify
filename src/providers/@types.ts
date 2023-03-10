@@ -28,30 +28,28 @@ export interface IUserContext {
 }
 
 export interface IVarContext {
-  colors: IColors;
-  titles: ISize;
-  texts: ISize;
-  radius: ISize;
-  changeColors: (id: string, value: string) => void;
-  changeTitles: (id: string, value: number) => void;
-  changeTexts: (id: string, value: number) => void;
-  changeRadius: (id: string, value: number) => void;
+  variables: IVariables;
+  changeVariables: (id: string, value: string | number) => void;
+  globalVarGenerator: () => string;
 }
 
 export interface IVarContextProps {
   children: React.ReactNode;
 }
 
-export interface IColors {
-  primary?: string;
-  secondary?: string;
-  tertiary?: string;
-}
-
-export interface ISize {
-  size1?: number;
-  size2?: number;
-  size3?: number;
+export interface IVariables {
+  colorPrimary?: string | number;
+  colorSecondary?: string | number;
+  colorTertiary?: string | number;
+  titleSize1?: number | string;
+  titleSize2?: number | string;
+  titleSize3?: number | string;
+  textSize1?: number | string;
+  textSize2?: number | string;
+  textSize3?: number | string;
+  radiusSize1?: number | string;
+  radiusSize2?: number | string;
+  radiusSize3?: number | string;
 }
 
 export interface IToastifyContextProps {

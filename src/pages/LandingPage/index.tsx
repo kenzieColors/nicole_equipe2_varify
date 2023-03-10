@@ -7,16 +7,8 @@ import { VarContext } from "../../providers/VarContext";
 import { useCopyToClipboard } from "usehooks-ts";
 import TextField from "@mui/material/TextField";
 const LandingPage = () => {
-  const {
-    colors,
-    titles,
-    texts,
-    radius,
-    changeColors,
-    changeTitles,
-    changeTexts,
-    changeRadius,
-  } = useContext(VarContext);
+  const { variables, changeVariables, globalVarGenerator } =
+    useContext(VarContext);
 
   const [value, copy] = useCopyToClipboard();
   return (
@@ -29,7 +21,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const colorID = event.target.id;
               const colorValue = event.target.value;
-              changeColors(colorID, colorValue);
+              changeVariables(colorID, colorValue);
             }}
             name="Cores"
           >
@@ -37,7 +29,10 @@ const LandingPage = () => {
             <Input label="Cor secundária" id="secondary" type="text"></Input>
             <Input label="Cor terciária" id="tertiary" type="text"></Input>
           </VarForm>
-          <TextField InputProps={{ readOnly: true }}>
+          <TextField
+            value={globalVarGenerator()}
+            InputProps={{ readOnly: true }}
+          >
             {/* {colors?.primary ? `--color-primary: ${colors?.primary} ` : null}
             {colors?.secondary
               ? `--color-secondary: ${colors?.secondary}`
@@ -52,7 +47,7 @@ const LandingPage = () => {
             {texts?.size3 ? `--font-3: ${texts.size3}` : null}
             {radius?.size1 ? `--radius-1: ${radius.size1} ` : null}
             {radius?.size2 ? `--radius-2: ${radius.size2}` : null} */}
-            <button onClick={() => copy("teste")}>Teste</button>
+            <button onClick={() => copy(globalVarGenerator())}>Teste</button>
           </TextField>
         </div>
         <div className="lowerForms">
@@ -61,7 +56,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const titleID = event.target.id;
               const titleValue = event.target.value;
-              changeTitles(titleID, titleValue);
+              changeVariables(titleID, titleValue);
             }}
             name="Títulos"
           >
@@ -75,7 +70,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const textId = event.target.id;
               const textValue = event.target.value;
-              changeTexts(textId, textValue);
+              changeVariables(textId, textValue);
             }}
             name="Textos"
           >
@@ -89,7 +84,7 @@ const LandingPage = () => {
             onChangeFunction={(event) => {
               const radiusID = event.target.id;
               const radiusValue = event.target.value;
-              changeRadius(radiusID, radiusValue);
+              changeVariables(radiusID, radiusValue);
             }}
             name="Radius"
           >
