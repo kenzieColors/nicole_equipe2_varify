@@ -6,6 +6,9 @@ import Input from "../../components/Forms/Input";
 import { VarContext } from "../../providers/VarContext";
 import { useCopyToClipboard } from "usehooks-ts";
 import TextField from "@mui/material/TextField";
+import { LogoLink, TopLink } from "../../components/Header/style";
+import varify from "../../assets/varify.png";
+
 const LandingPage = () => {
   const {
     colors,
@@ -21,7 +24,20 @@ const LandingPage = () => {
   const [value, copy] = useCopyToClipboard();
   return (
     <>
-      <Header />
+      <Header>
+        <div className="container">
+          <div>
+            <LogoLink to="/">
+              <img src={varify} alt="" className="logo" />
+            </LogoLink>
+          </div>
+
+          <nav>
+            <TopLink href="/register">Cadastre-se</TopLink>
+            <TopLink href="/login">Login</TopLink>
+          </nav>
+        </div>
+      </Header>
 
       <StyledMain>
         <div className="upperForms">
@@ -37,25 +53,8 @@ const LandingPage = () => {
             <Input label="Cor secundária" id="secondary" type="text"></Input>
             <Input label="Cor terciária" id="tertiary" type="text"></Input>
           </VarForm>
-          <TextField InputProps={{ readOnly: true }}>
-            {/* {colors?.primary ? `--color-primary: ${colors?.primary} ` : null}
-            {colors?.secondary
-              ? `--color-secondary: ${colors?.secondary}`
-              : null}
-            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
-            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
-            {titles?.size1 ? `--title-1: ${titles?.size1}` : null}
-            {titles?.size2 ? `--title-2: ${titles?.size2}` : null}
-            {titles?.size3 ? `--title-3: ${titles?.size3}` : null}
-            {texts?.size1 ? `--font-1: ${texts.size1}` : null}
-            {texts?.size2 ? `--font-2: ${texts.size2}` : null}
-            {texts?.size3 ? `--font-3: ${texts.size3}` : null}
-            {radius?.size1 ? `--radius-1: ${radius.size1} ` : null}
-            {radius?.size2 ? `--radius-2: ${radius.size2}` : null} */}
-            <button onClick={() => copy("teste")}>Teste</button>
-          </TextField>
-        </div>
-        <div className="lowerForms">
+
+          {/* <div className="lowerForms"> */}
           <VarForm
             checkbox
             onChangeFunction={(event) => {
@@ -97,7 +96,29 @@ const LandingPage = () => {
             <Input label="Radius 2" id="radiusSize-2" type="number"></Input>
             <Input label="Radius 3" id="radiusSize-3" type="number"></Input>
           </VarForm>
+          {/* </div> */}
         </div>
+
+        <fieldset className="titleBoxField">
+          <legend>Váriaveis globais</legend>
+          <TextField className="boxTextField" InputProps={{ readOnly: true }}>
+            {/* {colors?.primary ? `--color-primary: ${colors?.primary} ` : null}
+            {colors?.secondary
+              ? `--color-secondary: ${colors?.secondary}`
+              : null}
+            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
+            {colors?.tertiary ? `--color-tertiary: ${colors?.tertiary}` : null}
+            {titles?.size1 ? `--title-1: ${titles?.size1}` : null}
+            {titles?.size2 ? `--title-2: ${titles?.size2}` : null}
+            {titles?.size3 ? `--title-3: ${titles?.size3}` : null}
+            {texts?.size1 ? `--font-1: ${texts.size1}` : null}
+            {texts?.size2 ? `--font-2: ${texts.size2}` : null}
+            {texts?.size3 ? `--font-3: ${texts.size3}` : null}
+            {radius?.size1 ? `--radius-1: ${radius.size1} ` : null}
+            {radius?.size2 ? `--radius-2: ${radius.size2}` : null} */}
+            <button onClick={() => copy("teste")}>Teste</button>
+          </TextField>
+        </fieldset>
       </StyledMain>
     </>
   );
