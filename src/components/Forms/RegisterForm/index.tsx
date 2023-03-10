@@ -28,9 +28,10 @@ const RegisterForm = () => {
     <>
       <Header />
       <form onSubmit={handleSubmit(submit)}>
-        <Input label="Nome" type="text" register={register("name")} />
         <Input label="E-mail" type="email" register={register("email")} />
         <Input label="Senha" type="password" register={register("password")} />
+        <Input label="Nome" type="text" register={register("name")} />
+
         <button type="submit">Cadastre-se</button>
       </form>
     </>

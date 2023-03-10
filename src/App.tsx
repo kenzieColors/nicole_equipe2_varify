@@ -1,5 +1,11 @@
 import Router from "./routes/routes";
+import { GlobalStyle } from "./style/globalStyle";
 
-const App = () => <Router />;
+const App = () => 
+<>
+<GlobalStyle />
+<Router />;
+</>
+
 
 export default App;
