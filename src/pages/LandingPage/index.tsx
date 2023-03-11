@@ -41,9 +41,13 @@ const LandingPage = () => {
             }}
             name="Cores"
           >
-            <Input label="Cor primária" id="primary" type="text"></Input>
-            <Input label="Cor secundária" id="secondary" type="text"></Input>
-            <Input label="Cor terciária" id="tertiary" type="text"></Input>
+            <Input label="Cor primária" id="colorPrimary" type="text"></Input>
+            <Input
+              label="Cor secundária"
+              id="colorSecondary"
+              type="text"
+            ></Input>
+            <Input label="Cor terciária" id="colorTertiary" type="text"></Input>
           </VarForm>
         </div>
         <div className="lowerForms">
@@ -95,12 +99,12 @@ const LandingPage = () => {
         <fieldset className="titleBoxField">
           <legend>Váriaveis globais</legend>
           <TextField
+            multiline
             className="boxTextField"
             value={globalVarGenerator()}
             InputProps={{ readOnly: true }}
-          >
-            <button onClick={() => copy(globalVarGenerator())}>Teste</button>
-          </TextField>
+          ></TextField>
+          <button onClick={() => copy(globalVarGenerator())}>Teste</button>
         </fieldset>
       </StyledMain>
     </>
