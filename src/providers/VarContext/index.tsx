@@ -23,15 +23,15 @@ export const VarProvider = ({ children }: IVarContextProps) => {
   ]);
 
   const changeVariables = (id: string, value: string | number) => {
-    if (id == "primary") {
+    if (id == "colorPrimary") {
       setVariables({ ...variables, colorPrimary: value });
     }
 
-    if (id == "secondary") {
+    if (id == "colorSecondary") {
       setVariables({ ...variables, colorSecondary: value });
     }
 
-    if (id == "tertiary") {
+    if (id == "colorTertiary") {
       setVariables({ ...variables, colorTertiary: value });
     }
 
@@ -75,15 +75,15 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     const entries = Object.entries(variables);
 
     entries.forEach((entry) => {
-      let key = entry[0];
+      let variable = entry[0];
       let value = entry[1];
 
       varResult = `${varResult} 
-      ${key}: ${value}`;
+      --${variable}: ${value}`;
     });
-    3;
     return varResult;
   };
+
 
   const requestUserSavedVars = async (userId: number) => {
     try {
@@ -93,7 +93,7 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     }
   };
 
-  console.log(globalVarGenerator());
+
   return (
     <VarContext.Provider
       value={{
