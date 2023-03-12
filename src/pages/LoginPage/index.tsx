@@ -8,8 +8,6 @@ import varify from "../../assets/varify.png";
 // import StyledLoginPage from "./style";
 
 const LoginPage = () => {
-  console.log();
-
   return (
     <div>
       <Header>

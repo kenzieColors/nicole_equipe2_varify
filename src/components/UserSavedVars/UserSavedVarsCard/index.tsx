@@ -1,14 +1,12 @@
-import { IUserSavedVars } from "../../../providers/@types";
+import { IUserSavedVars, IVariables } from "../../../providers/@types";
 
-const UserSavedVarsCard = (savedVar: IUserSavedVars) => {
+const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
   return (
     <div>
-      <p>Id: {savedVar.id}</p>
-      <p>Colors: {savedVar.colors}</p>
-      <p>Radius: {savedVar.radius}</p>
-      <p>Texts: {savedVar.texts}</p>
-      <p>Titles: {savedVar.titles}</p>
-      <p>User id: {savedVar.userId}</p>
+      <p>
+        Colors: {favorite.colorPrimary} , {favorite.colorSecondary} ,
+        {favorite.colorTertiary}
+      </p>
 
       <button>Copy to clipboard</button>
       <br />

@@ -20,21 +20,23 @@ export interface ILoginFormValues {
 }
 
 export interface IUserContext {
+  userToken: string | null;
+  userID: string | null;
   user: IUser | null;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
   userRegister: (formData: IRegisterFormValues) => Promise<void>;
   userLogin: (formData: ILoginFormValues) => Promise<void>;
   userLogout: () => void;
+  userVars: IUserSavedVars[];
+  setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
+  requestUserSavedVars: (userId: string) => Promise<void>;
 }
 
 export interface IVarContext {
   variables: IVariables;
   setVarColors: (id: string, value: string) => void;
   setVarSizes: (id: string, value: number) => void;
-  globalVarGenerator: () => string;
-  userVars: IUserSavedVars[];
-  setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
-  requestUserSavedVars: (userId: number) => Promise<void>;
+  globalVarGenerator: (variables: IVariables) => string;
 }
 
 export interface IVarContextProps {
@@ -56,19 +58,15 @@ export interface IVariables {
   radiusSize3?: number;
 }
 
+export interface IUserSavedVars {
+  userId: number;
+  favorite: IVariables;
+  id: number;
+}
 export interface IToastifyContextProps {
   children: React.ReactNode;
 }
 
 export interface IContextProps {
   children: React.ReactNode;
-}
-
-export interface IUserSavedVars {
-  userId: number;
-  colors: string[];
-  titles: number[];
-  texts: number[];
-  radius: number[];
-  id: number;
 }

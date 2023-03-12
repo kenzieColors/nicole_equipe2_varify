@@ -1,26 +1,10 @@
 import { createContext, useState } from "react";
-import { api } from "../../services/api";
-import {
-  IUserSavedVars,
-  IVarContext,
-  IVarContextProps,
-  IVariables,
-} from "../@types";
+import { IVarContext, IVarContextProps, IVariables } from "../@types";
 
 export const VarContext = createContext({} as IVarContext);
 
 export const VarProvider = ({ children }: IVarContextProps) => {
   const [variables, setVariables] = useState<IVariables>({});
-  const [userVars, setUserVars] = useState<IUserSavedVars[]>([
-    {
-      userId: 2,
-      colors: ["#BCECE0", "#36EEE0", "#F652A0", "#4C5270"],
-      titles: [17, 12],
-      texts: [10],
-      radius: [2],
-      id: 3,
-    },
-  ]);
 
   const setVarColors = (id: string, value: string) => {
     if (id == "colorPrimary") {
@@ -72,7 +56,7 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     }
   };
 
-  const globalVarGenerator = () => {
+  const globalVarGenerator = (variables: IVariables) => {
     let varResult = "";
     const entries = Object.entries(variables);
 
@@ -86,14 +70,6 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     return varResult;
   };
 
-  const requestUserSavedVars = async (userId: number) => {
-    try {
-      const response = await api.get(`/favorites?userId=${userId}`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <VarContext.Provider
       value={{
@@ -101,9 +77,6 @@ export const VarProvider = ({ children }: IVarContextProps) => {
         setVarColors,
         setVarSizes,
         globalVarGenerator,
-        userVars,
-        setUserVars,
-        requestUserSavedVars,
       }}
     >
       {children}
