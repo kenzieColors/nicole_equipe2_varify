@@ -22,7 +22,7 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     },
   ]);
 
-  const changeVariables = (id: string, value: string | number) => {
+  const setVarColors = (id: string, value: string) => {
     if (id == "colorPrimary") {
       setVariables({ ...variables, colorPrimary: value });
     }
@@ -34,7 +34,9 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     if (id == "colorTertiary") {
       setVariables({ ...variables, colorTertiary: value });
     }
+  };
 
+  const setVarSizes = (id: string, value: number) => {
     if (id == "titleSize-1") {
       setVariables({ ...variables, titleSize1: value });
     }
@@ -84,7 +86,6 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     return varResult;
   };
 
-
   const requestUserSavedVars = async (userId: number) => {
     try {
       const response = await api.get(`/favorites?userId=${userId}`);
@@ -93,12 +94,12 @@ export const VarProvider = ({ children }: IVarContextProps) => {
     }
   };
 
-
   return (
     <VarContext.Provider
       value={{
         variables,
-        changeVariables,
+        setVarColors,
+        setVarSizes,
         globalVarGenerator,
         userVars,
         setUserVars,
