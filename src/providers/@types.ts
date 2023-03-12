@@ -29,7 +29,8 @@ export interface IUserContext {
 
 export interface IVarContext {
   variables: IVariables;
-  changeVariables: (id: string, value: string | number) => void;
+  setVarColors: (id: string, value: string) => void;
+  setVarSizes: (id: string, value: number) => void;
   globalVarGenerator: () => string;
   userVars: IUserSavedVars[];
   setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
@@ -41,18 +42,18 @@ export interface IVarContextProps {
 }
 
 export interface IVariables {
-  colorPrimary?: string | number;
-  colorSecondary?: string | number;
-  colorTertiary?: string | number;
-  titleSize1?: number | string;
-  titleSize2?: number | string;
-  titleSize3?: number | string;
-  textSize1?: number | string;
-  textSize2?: number | string;
-  textSize3?: number | string;
-  radiusSize1?: number | string;
-  radiusSize2?: number | string;
-  radiusSize3?: number | string;
+  colorPrimary?: string;
+  colorSecondary?: string;
+  colorTertiary?: string;
+  titleSize1?: number;
+  titleSize2?: number;
+  titleSize3?: number;
+  textSize1?: number;
+  textSize2?: number;
+  textSize3?: number;
+  radiusSize1?: number;
+  radiusSize2?: number;
+  radiusSize3?: number;
 }
 
 export interface IToastifyContextProps {

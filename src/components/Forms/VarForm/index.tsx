@@ -6,7 +6,7 @@ interface iVarFormProps {
   children: React.ReactNode;
   checkbox?: boolean;
   name: string;
-  onChangeFunction: (event: any) => void;
+  onChangeFunction?: (event: any) => void;
 }
 
 const VarForm = ({
