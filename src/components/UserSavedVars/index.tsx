@@ -1,12 +1,10 @@
 import { useContext, useEffect } from "react";
 import { IUserSavedVars } from "../../providers/@types";
 import { UserContext } from "../../providers/UserContext";
-import { VarContext } from "../../providers/VarContext";
 import UserSavedVarsCard from "./UserSavedVarsCard";
 
 const UserSavedVars = () => {
-  const { requestUserSavedVars, userVars } = useContext(VarContext);
-  const { user } = useContext(UserContext);
+  const { user, userVars, requestUserSavedVars } = useContext(UserContext);
 
   // useEffect(() => {
   //   user ? requestUserSavedVars(user.id) : null;
@@ -14,10 +12,12 @@ const UserSavedVars = () => {
 
   return (
     <div>
-      {userVars.map((savedVar: IUserSavedVars) => {
-        console.log(savedVar);
-        return <UserSavedVarsCard {...savedVar} />;
-      })}
+      {userVars
+        ? userVars.map((savedVar: IUserSavedVars) => {
+            console.log(savedVar);
+            return <UserSavedVarsCard {...savedVar} />;
+          })
+        : null}
     </div>
   );
 };

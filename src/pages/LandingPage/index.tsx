@@ -106,10 +106,10 @@ const LandingPage = () => {
           <TextField
             multiline
             className="boxTextField"
-            value={globalVarGenerator()}
+            value={globalVarGenerator(variables)}
             InputProps={{ readOnly: true }}
           ></TextField>
-          <button onClick={() => copy(globalVarGenerator())}>
+          <button onClick={() => copy(globalVarGenerator(variables))}>
             Copiar variáveis
           </button>
         </fieldset>
