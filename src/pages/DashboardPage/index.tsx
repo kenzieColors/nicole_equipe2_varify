@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import { LogoLink, TopLink } from "../../components/Header/style";
 import varify from "../../assets/varify.png";
 import UserSavedVars from "../../components/UserSavedVars";
+import StyledDashboard from "./style";
 
 const DashboardPage = () => {
   const { userToken, userID, requestUserSavedVars } = useContext(UserContext);
@@ -20,7 +21,7 @@ const DashboardPage = () => {
   }, []);
 
   return (
-    <>
+    <StyledDashboard>
       {/* <Header>
         <div className="container">
           <div>
@@ -39,7 +40,7 @@ const DashboardPage = () => {
       <section>
         <UserSavedVars />
       </section>
-    </>
+    </StyledDashboard>
   );
 };
 
