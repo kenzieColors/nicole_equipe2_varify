@@ -73,7 +73,6 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #212529;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
     height: 100vh;
   }
 
