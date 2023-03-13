@@ -20,20 +20,24 @@ export interface ILoginFormValues {
 }
 
 export interface IUserContext {
+  userToken: string | null;
+  userID: string | null;
   user: IUser | null;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
   userRegister: (formData: IRegisterFormValues) => Promise<void>;
   userLogin: (formData: ILoginFormValues) => Promise<void>;
   userLogout: () => void;
+  userVars: IUserSavedVars[];
+  setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
+  requestUserSavedVars: (userId: string) => Promise<void>;
+  saveUserVars: (variables: IVariables) => Promise<void>;
 }
 
 export interface IVarContext {
   variables: IVariables;
-  changeVariables: (id: string, value: string | number) => void;
-  globalVarGenerator: () => string;
-  userVars: IUserSavedVars[];
-  setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
-  requestUserSavedVars: (userId: number) => Promise<void>;
+  setVarColors: (id: string, value: string) => void;
+  setVarSizes: (id: string, value: number) => void;
+  globalVarGenerator: (variables: IVariables) => string;
 }
 
 export interface IVarContextProps {
@@ -41,33 +45,29 @@ export interface IVarContextProps {
 }
 
 export interface IVariables {
-  colorPrimary?: string | number;
-  colorSecondary?: string | number;
-  colorTertiary?: string | number;
-  titleSize1?: number | string;
-  titleSize2?: number | string;
-  titleSize3?: number | string;
-  textSize1?: number | string;
-  textSize2?: number | string;
-  textSize3?: number | string;
-  radiusSize1?: number | string;
-  radiusSize2?: number | string;
-  radiusSize3?: number | string;
+  colorPrimary?: string;
+  colorSecondary?: string;
+  colorTertiary?: string;
+  titleSize1?: number;
+  titleSize2?: number;
+  titleSize3?: number;
+  textSize1?: number;
+  textSize2?: number;
+  textSize3?: number;
+  radiusSize1?: number;
+  radiusSize2?: number;
+  radiusSize3?: number;
 }
 
+export interface IUserSavedVars {
+  userId: number;
+  favorite: IVariables;
+  id: number;
+}
 export interface IToastifyContextProps {
   children: React.ReactNode;
 }
 
 export interface IContextProps {
   children: React.ReactNode;
-}
-
-export interface IUserSavedVars {
-  userId: number;
-  colors: string[];
-  titles: number[];
-  texts: number[];
-  radius: number[];
-  id: number;
 }
