@@ -39,10 +39,17 @@ const LandingPage = () => {
       </Header>
 
       <StyledSection>
-        <h2><span>Simplifique</span> seu trabalho,</h2>
-        <h2>aumente sua produtividade com o <span>Varify.</span></h2>
-        
-        <p>a plataforma que vai revolucionar a maneira como você cria variáveis de estilização.</p>
+        <h2>
+          <span>Simplifique</span> seu trabalho,
+        </h2>
+        <h2>
+          aumente sua produtividade com o <span>Varify.</span>
+        </h2>
+
+        <p>
+          a plataforma que vai revolucionar a maneira como você cria variáveis
+          de estilização.
+        </p>
       </StyledSection>
 
       <StyledMain>
@@ -121,23 +128,25 @@ const LandingPage = () => {
             InputProps={{ readOnly: true }}
           ></TextField>
 
-          <Button
-            type="button"
-            onClickFunction={() => {
-              saveUserVars(variables);
-            }}
-            disabled={userID ? false : true}
-          >
-            Favoritar variáveis
-          </Button>
-          <Button
-            type="button"
-            onClickFunction={() => {
-              copy(globalVarGenerator(variables));
-            }}
-          >
-            Copiar variáveis
-          </Button>
+          <div className="containerButtons">
+            <Button
+              type="button"
+              onClickFunction={() => {
+                saveUserVars(variables);
+              }}
+              disabled={userID ? false : true}
+            >
+              Favoritar variáveis
+            </Button>
+            <Button
+              type="button"
+              onClickFunction={() => {
+                copy(globalVarGenerator(variables));
+              }}
+            >
+              Copiar variáveis
+            </Button>
+          </div>
         </fieldset>
       </StyledMain>
     </>
