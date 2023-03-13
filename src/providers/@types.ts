@@ -30,6 +30,7 @@ export interface IUserContext {
   userVars: IUserSavedVars[];
   setUserVars: React.Dispatch<React.SetStateAction<IUserSavedVars[]>>;
   requestUserSavedVars: (userId: string) => Promise<void>;
+  saveUserVars: (variables: IVariables) => Promise<void>;
 }
 
 export interface IVarContext {

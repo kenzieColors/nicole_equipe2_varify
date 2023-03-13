@@ -1,4 +1,4 @@
-import { IUserSavedVars, IVariables } from "../../../providers/@types";
+import { IUserSavedVars } from "../../../providers/@types";
 
 const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
   return (
