@@ -12,6 +12,8 @@ export const StyledMain = styled.main`
   display: flex;
   flex-direction: column;
 
+  position: relative;
+
   .upperForms {
     display: flex;
     flex-wrap: wrap;
@@ -26,15 +28,6 @@ export const StyledMain = styled.main`
     width: 100%;
   }
 
-  /* .lowerForms {
-    display: flex;
-    flex-direction: column;
-  } */
-
-  /* .lowerForms > fieldset {
-    width: 100%;
-  } */
-
   @media (min-width: 769px) {
     flex-wrap: wrap;
 
@@ -48,9 +41,6 @@ export const StyledMain = styled.main`
     .upperForms > div {
       width: 100%;
     }
-    /* .lowerForms > fieldset {
-      width: 28%;
-    } */
   }
 
   @media (min-width: 1000px) {
@@ -73,18 +63,19 @@ export const StyledMain = styled.main`
 
     font-weight: var(--font-weight-3);
 
+    min-width: 48%;
+
     .containerButtons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-  }
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
 
     @media (min-width: 769px) {
-      position: fixed;
-      width: 36%;
+      position: sticky;
       top: 294px;
-      right: 5%;
+      right: 0;
 
       legend {
         font-size: 1.2rem;
@@ -138,6 +129,4 @@ export const StyledSection = styled.section`
     max-width: 1000px;
     margin: 20px auto 0;
   }
-
-  
 `;

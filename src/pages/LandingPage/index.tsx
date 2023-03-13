@@ -53,8 +53,7 @@ const LandingPage = () => {
         </h2>
 
         <p>
-          a plataforma que vai revolucionar a maneira como você cria variáveis
-          de estilização.
+          a plataforma que vai otimizar a maneira de criar variáveis de estilização.
         </p>
       </StyledSection>
 
@@ -122,8 +121,6 @@ const LandingPage = () => {
             <Input label="Radius 3" id="radiusSize-3" type="number"></Input>
           </VarForm>
         </div>
-        {/* <div className="lowerForms"> */}
-        {/* </div> */}
 
         <fieldset className="titleBoxField">
           <legend>Váriaveis globais</legend>
