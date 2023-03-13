@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { FieldSet } from "../../components/Forms/Input/style";
 
+// export const StyledBox = styled.div`
+//   max-width: 1000px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// `;
 export const StyledMain = styled.main`
   width: 100%;
   max-width: 1000px;
@@ -16,7 +22,7 @@ export const StyledMain = styled.main`
     display: flex;
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 6px;
   }
 
   .upperForms > fieldset,
@@ -76,7 +82,7 @@ export const StyledMain = styled.main`
       position: fixed;
       width: 36%;
       top: 160px;
-      right: 0;
+      right: 5%;
 
       legend {
         font-size: 1.2rem;
