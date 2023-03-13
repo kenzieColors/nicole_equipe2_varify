@@ -24,9 +24,10 @@ const LandingPage = () => {
     <>
       <Header>
         <div className="container">
-          <div>
+          <div className="logo">
             <LogoLink to="/">
               <img src={varify} alt="" className="logo" />
+              varify
             </LogoLink>
           </div>
 
@@ -59,8 +60,6 @@ const LandingPage = () => {
               setColorFunction={setVarColors}
             ></InputColorPick>
           </VarForm>
-        </div>
-        <div className="lowerForms">
           <VarForm
             checkbox
             onChangeFunction={(event) => {
@@ -103,6 +102,8 @@ const LandingPage = () => {
             <Input label="Radius 3" id="radiusSize-3" type="number"></Input>
           </VarForm>
         </div>
+        {/* <div className="lowerForms"> */}
+        {/* </div> */}
 
         <fieldset className="titleBoxField">
           <legend>Váriaveis globais</legend>

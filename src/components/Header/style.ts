@@ -16,6 +16,12 @@ export const TopHeader = styled.header`
   align-items: center;
 
   gap: 20px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   @media (min-width: 1000px) {
     .container {
@@ -36,10 +42,27 @@ export const TopHeader = styled.header`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100vw;
+    }
   }
 `;
+
 export const LogoLink = styled(Link)`
   text-decoration: none;
+
+  color: var(--color-brand-3);
+  font-size: 3.4rem;
+  font-weight: var(--font-weight-1);
+
+  display: flex;
+  align-items: center;
 `;
 
 export const TopLink = styled.a`
