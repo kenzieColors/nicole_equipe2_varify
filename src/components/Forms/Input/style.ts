@@ -10,23 +10,22 @@ export const FieldSet = styled.fieldset`
 
   border: none;
 
-  span{
+  span {
     font-size: 9px;
-    font-weight: 400;
+    font-weight: var(--font-weight-4);
     color: var(--grey-600);
   }
 `;
 
 export const StyledTextField = styled(TextField)`
   input {
-    background-color: #3f3f3f;
+    background-color: var(--grey-100);
     border-radius: 8px;
-    /* width: 100%; */
-
+    color: var(--grey-600);
     padding: 14px 12px;
   }
   label {
-    color: #8b8b8b;
+    color: var(--grey-600);
 
     font-size: 1rem;
   }
