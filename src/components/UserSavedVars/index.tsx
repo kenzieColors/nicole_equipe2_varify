@@ -13,11 +13,13 @@ const UserSavedVars = () => {
 
   return (
     <StyledUserSavedVars>
-      {userVars
-        ? userVars.map((savedVar: IUserSavedVars) => {
-            return <UserSavedVarsCard {...savedVar} key={savedVar.id} />;
-          })
-        : null}
+      {userVars ? (
+        userVars.map((savedVar: IUserSavedVars) => {
+          return <UserSavedVarsCard {...savedVar} key={savedVar.id} />;
+        })
+      ) : (
+        <p>No saved variables yet.</p>
+      )}
     </StyledUserSavedVars>
   );
 };

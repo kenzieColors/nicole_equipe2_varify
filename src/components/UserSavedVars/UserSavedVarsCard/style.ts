@@ -15,6 +15,13 @@ const StyledUserSavedVarsCards = styled.li`
   flex-direction: column;
   justify-content: center;
 
+  p {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+  }
+
   .button__clipboard {
     width: 30px;
     height: 30px;
@@ -22,6 +29,9 @@ const StyledUserSavedVarsCards = styled.li`
     left: 5px;
     bottom: 5px;
     border-radius: var(--radius-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .button__delete {
     width: 30px;
@@ -30,6 +40,9 @@ const StyledUserSavedVarsCards = styled.li`
     right: 5px;
     bottom: 5px;
     border-radius: var(--radius-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

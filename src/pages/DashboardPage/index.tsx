@@ -38,6 +38,7 @@ const DashboardPage = () => {
       </Header> */}
 
       <section>
+        <h2 className="title-1">Saved Variables</h2>
         <UserSavedVars />
       </section>
     </StyledDashboard>
