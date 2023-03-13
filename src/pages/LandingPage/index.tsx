@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Header from "../../components/Header";
-import { StyledMain } from "./style";
+import { StyledMain, StyledSection } from "./style";
 import VarForm from "../../components/Forms/VarForm";
 import Input from "../../components/Forms/Input";
 import InputColorPick from "../../components/Forms/InputColorPick";
@@ -37,6 +37,13 @@ const LandingPage = () => {
           </nav>
         </div>
       </Header>
+
+      <StyledSection>
+        <h2><span>Simplifique</span> seu trabalho,</h2>
+        <h2>aumente sua produtividade com o <span>Varify.</span></h2>
+        
+        <p>a plataforma que vai revolucionar a maneira como você cria variáveis de estilização.</p>
+      </StyledSection>
 
       <StyledMain>
         <div className="upperForms">
