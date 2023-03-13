@@ -21,7 +21,10 @@ export const StyledTextField = styled(TextField)`
   }
   label {
     color: #8b8b8b;
-
-    font-size: 1rem;
+  }
+  span {
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--grey-600);
   }
 `;

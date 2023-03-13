@@ -24,3 +24,16 @@ export const schema = yup
       .required("Confirmar senha é obrigatório"),
   })
   .required();
+
+const validData = { email: "user@example.com" };
+const invalidData = { email: "user" };
+
+schema
+  .validate(validData)
+  .then(() => console.log("Dados válidos"))
+  .catch((error) => {});
+
+schema
+  .validate(invalidData)
+  .then(() => console.log("Dados válidos"))
+  .catch((error) => {});

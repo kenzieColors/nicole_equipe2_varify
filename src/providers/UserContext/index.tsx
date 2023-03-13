@@ -28,7 +28,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       setUser(response.data.user);
       localStorage.setItem("@Token", response.data.accessToken);
       //adicionar toast de confirmação
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -39,6 +39,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       const response = await api.post("/login", formData);
       setUser(response.data.user);
       localStorage.setItem("@Token", response.data.accessToken);
+      localStorage.setItem("@ID", response.data.user.id);
       localStorage.setItem("@ID", response.data.user.id);
       //adicionar toast de confirmação
       navigate("/");
@@ -83,6 +84,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       console.log(error);
     }
   };
+
   return (
     <UserContext.Provider
       value={{
