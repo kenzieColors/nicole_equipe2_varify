@@ -10,4 +10,10 @@ export const FieldSet = styled.fieldset`
   border: none;
 
   width: 100%;
+
+  span{
+    font-size: 0.563rem;
+    font-weight: var(--font-weight-4);
+    color: var(--grey-0);
+  }
 `;

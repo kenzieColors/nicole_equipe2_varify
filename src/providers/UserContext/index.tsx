@@ -1,36 +1,38 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
-import { IUserContext, IDefaultProviderProps, IUser, IRegisterFormValues, ILoginFormValues } from "../@types";
+import {
+  IUserContext,
+  IDefaultProviderProps,
+  IUser,
+  IRegisterFormValues,
+  ILoginFormValues,
+} from "../@types";
 
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
-  console.log(user)
+  console.log(user);
 
   const navigate = useNavigate();
 
-  // const autoLoginUser = () => {
-  //     const token = localStorage.getItem("@Token")
+  // useEffect(() => {
+  //   const autoLoginUser = () => {
+  //     const token = localStorage.getItem("@Token");
 
   //     try {
 
   //     } catch (error) {
-  //         console.log(error)
+  //       console.log(error);
   //     }
-  // };
-
-  // useEffect(() => {
-
+  //   };
   // }, []);
 
-  const userRegister = async (formData: IRegisterFormValues) => {
+  const userRegister = async (data: IRegisterFormValues) => {
     try {
-      const response = await api.post("/register", formData);
-      console.log(response)
-      // setUser(response.data.user);
-      // localStorage.setItem("@Token", response.data.accessToken);
+      const response = await api.post("/register", data);
+      localStorage.setItem("@Token", response.data.accessToken);
       //adicionar toast de confirmação
       navigate("/");
     } catch (error) {
@@ -58,9 +60,10 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   };
 
   return (
-    <UserContext.Provider value={{user, setUser, userRegister, userLogin, userLogout}}>
+    <UserContext.Provider
+      value={{ user, setUser, userRegister, userLogin, userLogout }}
+    >
       {children}
     </UserContext.Provider>
   );
 };
-

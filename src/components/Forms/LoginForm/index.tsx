@@ -21,7 +21,6 @@ const LoginForm = () => {
 
   return (
     <>
-      {/* <Header /> */}
       <StyledLoginForm onSubmit={handleSubmit(submit)}>
         <Input label="Seu e-mail" type="email" register={register("email")} />
         <Input
