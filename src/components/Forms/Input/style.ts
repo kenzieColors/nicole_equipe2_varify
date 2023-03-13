@@ -14,6 +14,6 @@ export const FieldSet = styled.fieldset`
   span{
     font-size: 0.563rem;
     font-weight: var(--font-weight-4);
-    color: var(--grey-0);
+    color: var(--grey-600);
   }
 `;

@@ -17,24 +17,11 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const autoLoginUser = () => {
-  //     const token = localStorage.getItem("@Token");
-
-  //     try {
-
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  // }, []);
-
   const userRegister = async (data: IRegisterFormValues) => {
     try {
-      const response = await api.post("/register", data);
-      localStorage.setItem("@Token", response.data.accessToken);
+      await api.post("/register", data);
       //adicionar toast de confirmação
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
