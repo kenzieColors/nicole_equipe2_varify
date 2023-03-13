@@ -23,13 +23,9 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const userRegister = async (formData: IRegisterFormValues) => {
     try {
-      const response = await api.post("/register", formData);
-      console.log(response);
-      // setUser(response.data.user);
-      // localStorage.setItem("@Token", response.data.accessToken);
+      await api.post("/register", formData);
       //adicionar toast de confirmação
-      console.log(response);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }

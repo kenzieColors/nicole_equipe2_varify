@@ -9,6 +9,12 @@ export const FieldSet = styled.fieldset`
   gap: 8px;
 
   border: none;
+
+  span{
+    font-size: 9px;
+    font-weight: 400;
+    color: var(--grey-600);
+  }
 `;
 
 export const StyledTextField = styled(TextField)`

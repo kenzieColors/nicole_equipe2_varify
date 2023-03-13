@@ -8,7 +8,6 @@ import Input from "../Input";
 import { schema } from "./validations";
 import { Link } from "react-router-dom";
 import StyledRegisterForm from "./style";
-// import Header from "../../Header";
 
 const RegisterForm = () => {
   const {
@@ -21,32 +20,47 @@ const RegisterForm = () => {
 
   const { userRegister } = useContext(UserContext);
 
-  const submit: SubmitHandler<IRegisterFormValues> = (formData) => {
-    userRegister(formData);
-    console.log(formData);
+  const submit: SubmitHandler<IRegisterFormValues> = (data) => {
+    userRegister(data);
   };
-
-  console.log(errors);
 
   return (
     <>
-      {/* <Header /> */}
-      {/* <div className="container__registerForm"> */}
       <StyledRegisterForm onSubmit={handleSubmit(submit)}>
-        <Input label="E-mail" type="email" register={register("email")} />
-        <Input label="Senha" type="password" register={register("password")} />
-        <Input label="Nome" type="text" register={register("name")} />
+        <Input
+          label="E-mail"
+          type="email"
+          register={register("email")}
+          error={errors.email}
+        />
+        <Input
+          label="Senha"
+          type="password"
+          register={register("password")}
+          error={errors.password}
+        />
+        <Input
+          label="Confirmar senha"
+          type="password"
+          register={register("confirmPassword")}
+          error={errors.confirmPassword}
+        />
+        <Input
+          label="Nome"
+          type="text"
+          register={register("name")}
+          error={errors.name}
+        />
 
         <button type="submit">Cadastre-se</button>
 
         <p>
-          Já tem uma conta?{" "}
+          Já tem uma conta?
           <Link className="styledLink" to="/login">
             Login
           </Link>
         </p>
       </StyledRegisterForm>
-      {/* </div> */}
     </>
   );
 };
