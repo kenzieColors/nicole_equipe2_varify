@@ -96,8 +96,6 @@ export const StyledMain = styled.main`
 
       border-radius: var(--radius-default);
 
-      margin: 4px;
-
       width: 100%;
       height: 100%;
 

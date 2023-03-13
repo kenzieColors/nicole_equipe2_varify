@@ -16,7 +16,7 @@ const LandingPage = () => {
   const { variables, setVarColors, setVarSizes, globalVarGenerator } =
     useContext(VarContext);
 
-  const { userID, saveUserVars } = useContext(UserContext);
+  const { user, userID, saveUserVars } = useContext(UserContext);
 
   const [value, copy] = useCopyToClipboard();
 
@@ -31,10 +31,16 @@ const LandingPage = () => {
             </LogoLink>
           </div>
 
-          <nav>
-            <TopLink href="/register">Cadastre-se</TopLink>
-            <TopLink href="/login">Login</TopLink>
-          </nav>
+          {user ? (
+            <nav>
+              <TopLink href="/dashboard">Dashboard</TopLink>
+            </nav>
+          ) : (
+            <nav>
+              <TopLink href="/register">Cadastre-se</TopLink>
+              <TopLink href="/login">Login</TopLink>
+            </nav>
+          )}
         </div>
       </Header>
 

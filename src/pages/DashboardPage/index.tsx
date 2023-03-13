@@ -22,20 +22,20 @@ const DashboardPage = () => {
 
   return (
     <StyledDashboard>
-      {/* <Header>
+      <Header>
         <div className="container">
-          <div>
+          <div className="logo">
             <LogoLink to="/">
               <img src={varify} alt="" className="logo" />
+              varify
             </LogoLink>
           </div>
 
           <nav>
-            <TopLink href="/register">Cadastre-se</TopLink>
-            <TopLink href="/login">Login</TopLink>
+            <TopLink href="/">Logout</TopLink>
           </nav>
         </div>
-      </Header> */}
+      </Header>
 
       <section>
         <h2 className="title-1">Saved Variables</h2>
