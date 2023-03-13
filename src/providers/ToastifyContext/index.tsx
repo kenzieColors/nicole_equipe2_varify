@@ -1,11 +1,12 @@
 import { createContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import { IToastifyContextProps } from "../@types";
+import "react-toastify/dist/ReactToastify.css";
+import { IToastifyContext, IToastifyContextProps } from "../@types";
 
-export const ToastifyContext = createContext({});
+export const ToastifyContext = createContext({} as IToastifyContext);
 
 export const ToastifyProvider = ({ children }: IToastifyContextProps) => {
-  const toastify = (type: string, message: string) => {
+  const toastify = (type: "success" | "error" | "default", message: string) => {
     if (type === "success") {
       toast.success(message);
     } else if (type === "error") {
@@ -19,7 +20,7 @@ export const ToastifyProvider = ({ children }: IToastifyContextProps) => {
     <ToastifyContext.Provider value={{ toastify }}>
       {children}
       <ToastContainer
-        position="top-right"
+        position="top-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
