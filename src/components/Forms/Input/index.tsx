@@ -16,7 +16,7 @@ const Input = ({ label, type, children, id, register, error }: IInputProps) => (
       {children}
     </StyledTextField>
 
-    {error ? <span>Erro</span> : null}
+    {error ? <span>{error.message}</span> : null}
   </FieldSet>
 );
 
