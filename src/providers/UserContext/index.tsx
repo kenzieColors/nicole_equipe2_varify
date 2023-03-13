@@ -28,6 +28,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       // setUser(response.data.user);
       // localStorage.setItem("@Token", response.data.accessToken);
       //adicionar toast de confirmação
+      console.log(response);
       navigate("/");
     } catch (error) {
       console.log(error);

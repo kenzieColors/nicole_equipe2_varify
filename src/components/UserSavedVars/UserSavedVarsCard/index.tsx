@@ -4,8 +4,9 @@ const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
   return (
     <div>
       <p>
-        Colors: {favorite.colorPrimary} , {favorite.colorSecondary} ,
-        {favorite.colorTertiary}
+        Colors: {favorite?.colorPrimary ? favorite.colorPrimary : null} ,
+        {favorite?.colorSecondary ? favorite.colorSecondary : null} ,
+        {favorite?.colorTertiary ? favorite.colorTertiary : null}
       </p>
 
       <button>Copy to clipboard</button>

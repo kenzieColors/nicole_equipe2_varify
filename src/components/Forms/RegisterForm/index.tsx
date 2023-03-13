@@ -26,23 +26,26 @@ const RegisterForm = () => {
     console.log(formData);
   };
 
+  console.log(errors);
+
   return (
     <>
       {/* <Header /> */}
       {/* <div className="container__registerForm"> */}
-        <StyledRegisterForm onSubmit={handleSubmit(submit)}>
-          <Input label="E-mail" type="email" register={register("email")} />
-          <Input
-            label="Senha"
-            type="password"
-            register={register("password")}
-          />
-          <Input label="Nome" type="text" register={register("name")} />
+      <StyledRegisterForm onSubmit={handleSubmit(submit)}>
+        <Input label="E-mail" type="email" register={register("email")} />
+        <Input label="Senha" type="password" register={register("password")} />
+        <Input label="Nome" type="text" register={register("name")} />
 
-          <button type="submit">Cadastre-se</button>
-          
-          <p>Já tem uma conta? <Link className="styledLink" to="/login">Login</Link></p>
-        </StyledRegisterForm>
+        <button type="submit">Cadastre-se</button>
+
+        <p>
+          Já tem uma conta?{" "}
+          <Link className="styledLink" to="/login">
+            Login
+          </Link>
+        </p>
+      </StyledRegisterForm>
       {/* </div> */}
     </>
   );

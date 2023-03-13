@@ -15,12 +15,12 @@ export const schema = yup
       .matches(/[A-Z]/, "Deve conter ao menos 1 letra maiúscula")
       .matches(/(\W|_)/, "Deve conter ao menos 1 caracter especial")
       .required("Senha é obrigatória"),
-    confirmPassword: yup
-      .string()
-      .oneOf(
-        [yup.ref("password")],
-        "Confirmação de senha deve ser igual a senha"
-      )
-      .required("Confirmar senha é obrigatório"),
+    // confirmPassword: yup
+    //   .string()
+    //   .oneOf(
+    //     [yup.ref("password")],
+    //     "Confirmação de senha deve ser igual a senha"
+    //   )
+    //   .required("Confirmar senha é obrigatório"),
   })
   .required();
