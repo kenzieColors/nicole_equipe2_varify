@@ -4,15 +4,19 @@ import { StyledMain } from "./style";
 import VarForm from "../../components/Forms/VarForm";
 import Input from "../../components/Forms/Input";
 import InputColorPick from "../../components/Forms/InputColorPick";
+import Button from "../../components/Button";
 import { VarContext } from "../../providers/VarContext";
 import { useCopyToClipboard } from "usehooks-ts";
 import TextField from "@mui/material/TextField";
 import { LogoLink, TopLink } from "../../components/Header/style";
 import varify from "../../assets/varify.png";
+import { UserContext } from "../../providers/UserContext";
 
 const LandingPage = () => {
   const { variables, setVarColors, setVarSizes, globalVarGenerator } =
     useContext(VarContext);
+
+  const { userID, saveUserVars } = useContext(UserContext);
 
   const [value, copy] = useCopyToClipboard();
 
@@ -98,7 +102,6 @@ const LandingPage = () => {
             <Input label="Radius 2" id="radiusSize-2" type="number"></Input>
             <Input label="Radius 3" id="radiusSize-3" type="number"></Input>
           </VarForm>
-          {/* </div> */}
         </div>
 
         <fieldset className="titleBoxField">
@@ -109,9 +112,24 @@ const LandingPage = () => {
             value={globalVarGenerator(variables)}
             InputProps={{ readOnly: true }}
           ></TextField>
-          <button onClick={() => copy(globalVarGenerator(variables))}>
+
+          <Button
+            type="button"
+            onClickFunction={() => {
+              saveUserVars(variables);
+            }}
+            disabled={userID ? false : true}
+          >
+            Favoritar variáveis
+          </Button>
+          <Button
+            type="button"
+            onClickFunction={() => {
+              copy(globalVarGenerator(variables));
+            }}
+          >
             Copiar variáveis
-          </button>
+          </Button>
         </fieldset>
       </StyledMain>
     </>

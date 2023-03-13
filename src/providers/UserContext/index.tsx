@@ -8,6 +8,7 @@ import {
   IRegisterFormValues,
   ILoginFormValues,
   IUserSavedVars,
+  IVariables,
 } from "../@types";
 
 export const UserContext = createContext({} as IUserContext);
@@ -66,6 +67,22 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
+  const saveUserVars = async (variables: IVariables) => {
+    try {
+      const response = await api.post(
+        `/favorites`,
+        { userId: userID, favorites: variables },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <UserContext.Provider
       value={{
@@ -79,6 +96,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         userVars,
         setUserVars,
         requestUserSavedVars,
+        saveUserVars,
       }}
     >
       {children}
