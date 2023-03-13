@@ -22,6 +22,8 @@ export const StyledMain = styled.main`
     display: flex;
     flex-wrap: wrap;
 
+    width: 100%;
+
     gap: 6px;
   }
 
@@ -30,14 +32,14 @@ export const StyledMain = styled.main`
     width: 100%;
   }
 
-  .lowerForms {
+  /* .lowerForms {
     display: flex;
     flex-direction: column;
-  }
+  } */
 
-  .lowerForms > fieldset {
+  /* .lowerForms > fieldset {
     width: 100%;
-  }
+  } */
 
   @media (min-width: 769px) {
     flex-wrap: wrap;
@@ -72,7 +74,6 @@ export const StyledMain = styled.main`
     color: var(--color-brand-4);
 
     padding: 1rem;
-    width: 100%;
 
     margin: 4px;
 

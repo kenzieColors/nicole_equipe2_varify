@@ -15,6 +15,7 @@ const LoginPage = () => {
           <div>
             <LogoLink to="/">
               <img src={varify} alt="" className="logo" />
+              varify
             </LogoLink>
           </div>
 
