@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { FieldSet } from "../../components/Forms/Input/style";
 
-// export const StyledBox = styled.div`
-//   max-width: 1000px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-// `;
 export const StyledMain = styled.main`
   width: 100%;
   max-width: 1000px;
@@ -17,6 +11,8 @@ export const StyledMain = styled.main`
 
   display: flex;
   flex-direction: column;
+
+  position: relative;
 
   .upperForms {
     display: flex;
@@ -32,15 +28,6 @@ export const StyledMain = styled.main`
     width: 100%;
   }
 
-  /* .lowerForms {
-    display: flex;
-    flex-direction: column;
-  } */
-
-  /* .lowerForms > fieldset {
-    width: 100%;
-  } */
-
   @media (min-width: 769px) {
     flex-wrap: wrap;
 
@@ -54,14 +41,11 @@ export const StyledMain = styled.main`
     .upperForms > div {
       width: 100%;
     }
-    /* .lowerForms > fieldset {
-      width: 28%;
-    } */
   }
 
   @media (min-width: 1000px) {
     max-width: 1000px;
-    margin: 30px auto;
+    margin: 0 auto;
   }
 
   .titleBoxField {
@@ -79,11 +63,19 @@ export const StyledMain = styled.main`
 
     font-weight: var(--font-weight-3);
 
+    min-width: 48%;
+
+    .containerButtons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
     @media (min-width: 769px) {
-      position: fixed;
-      width: 36%;
-      top: 160px;
-      right: 5%;
+      position: sticky;
+      top: 294px;
+      right: 0;
 
       legend {
         font-size: 1.2rem;
@@ -94,8 +86,6 @@ export const StyledMain = styled.main`
       color: var(--grey-0);
 
       border-radius: var(--radius-default);
-
-      margin: 4px;
 
       width: 100%;
       height: 100%;
@@ -111,5 +101,32 @@ export const StyledMain = styled.main`
         border-radius: var(--radius-default);
       }
     }
+  }
+`;
+
+export const StyledSection = styled.section`
+  margin-top: 20px;
+  padding: 20px;
+
+  h2 {
+    color: var(--grey-0);
+    font-weight: var(--font-weight-2);
+    line-height: 150%;
+  }
+
+  h2 > span {
+    color: var(--color-brand-1);
+  }
+
+  p {
+    color: var(--grey-600);
+    font-size: 0.875rem;
+    margin-top: 15px;
+    line-height: 150%;
+  }
+
+  @media (min-width: 100px) {
+    max-width: 1000px;
+    margin: 20px auto 0;
   }
 `;

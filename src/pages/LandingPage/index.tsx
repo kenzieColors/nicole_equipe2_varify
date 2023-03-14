@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Header from "../../components/Header";
-import { StyledMain } from "./style";
+import { StyledMain, StyledSection } from "./style";
 import VarForm from "../../components/Forms/VarForm";
 import Input from "../../components/Forms/Input";
 import InputColorPick from "../../components/Forms/InputColorPick";
@@ -16,7 +16,7 @@ const LandingPage = () => {
   const { variables, setVarColors, setVarSizes, globalVarGenerator } =
     useContext(VarContext);
 
-  const { userID, saveUserVars } = useContext(UserContext);
+  const { user, userID, saveUserVars } = useContext(UserContext);
 
   const [value, copy] = useCopyToClipboard();
 
@@ -31,12 +31,31 @@ const LandingPage = () => {
             </LogoLink>
           </div>
 
-          <nav>
-            <TopLink href="/register">Cadastre-se</TopLink>
-            <TopLink href="/login">Login</TopLink>
-          </nav>
+          {user ? (
+            <nav>
+              <TopLink href="/dashboard">Dashboard</TopLink>
+            </nav>
+          ) : (
+            <nav>
+              <TopLink href="/register">Cadastre-se</TopLink>
+              <TopLink href="/login">Login</TopLink>
+            </nav>
+          )}
         </div>
       </Header>
+
+      <StyledSection>
+        <h2>
+          <span>Simplifique</span> seu trabalho,
+        </h2>
+        <h2>
+          aumente sua produtividade com o <span>Varify.</span>
+        </h2>
+
+        <p>
+          a plataforma que vai otimizar a maneira de criar variáveis de estilização.
+        </p>
+      </StyledSection>
 
       <StyledMain>
         <div className="upperForms">
@@ -102,8 +121,6 @@ const LandingPage = () => {
             <Input label="Radius 3" id="radiusSize-3" type="number"></Input>
           </VarForm>
         </div>
-        {/* <div className="lowerForms"> */}
-        {/* </div> */}
 
         <fieldset className="titleBoxField">
           <legend>Váriaveis globais</legend>
@@ -114,23 +131,25 @@ const LandingPage = () => {
             InputProps={{ readOnly: true }}
           ></TextField>
 
-          <Button
-            type="button"
-            onClickFunction={() => {
-              saveUserVars(variables);
-            }}
-            disabled={userID ? false : true}
-          >
-            Favoritar variáveis
-          </Button>
-          <Button
-            type="button"
-            onClickFunction={() => {
-              copy(globalVarGenerator(variables));
-            }}
-          >
-            Copiar variáveis
-          </Button>
+          <div className="containerButtons">
+            <Button
+              type="button"
+              onClickFunction={() => {
+                saveUserVars(variables);
+              }}
+              disabled={userID ? false : true}
+            >
+              Favoritar variáveis
+            </Button>
+            <Button
+              type="button"
+              onClickFunction={() => {
+                copy(globalVarGenerator(variables));
+              }}
+            >
+              Copiar variáveis
+            </Button>
+          </div>
         </fieldset>
       </StyledMain>
     </>

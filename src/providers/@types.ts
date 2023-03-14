@@ -65,10 +65,24 @@ export interface IUserSavedVars {
   favorite: IVariables;
   id: number;
 }
+
+export interface IToastifyContext {
+  toastify: (type: "success" | "error" | "default", message: string) => void;
+}
 export interface IToastifyContextProps {
   children: React.ReactNode;
 }
 
 export interface IContextProps {
   children: React.ReactNode;
+}
+
+export interface IResponseLoginRegister {
+  accessToken: string;
+  user: IUser;
+}
+
+export interface IResponseUserVar {
+  userId: number;
+  favorite: IVariables;
 }

@@ -55,9 +55,9 @@ const RegisterForm = () => {
         <button type="submit">Cadastre-se</button>
 
         <p>
-          Já tem uma conta?
+          Já tem uma conta? Faça seu login {""}
           <Link className="styledLink" to="/login">
-            Login
+            Aqui!
           </Link>
         </p>
       </StyledRegisterForm>
