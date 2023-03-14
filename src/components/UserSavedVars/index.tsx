@@ -5,12 +5,11 @@ import StyledUserSavedVars from "./style";
 import UserSavedVarsCard from "./UserSavedVarsCard";
 
 const UserSavedVars = () => {
-  const { userID, userVars, setUserVars, requestUserSavedVars } =
-    useContext(UserContext);
+  const { userID, userVars, requestUserSavedVars } = useContext(UserContext);
 
   useEffect(() => {
     userID ? requestUserSavedVars(userID) : null;
-  }, []);
+  }, [userID]);
 
   return (
     <StyledUserSavedVars>
