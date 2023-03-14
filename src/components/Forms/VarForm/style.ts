@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledFieldSet = styled.fieldset`
   display: flex;
@@ -25,6 +25,7 @@ export const StyledFieldSet = styled.fieldset`
   .check {
     color: var(--color-brand-1);
   }
+
   @media (min-width: 769px) {
     legend {
       font-size: 1.2rem;

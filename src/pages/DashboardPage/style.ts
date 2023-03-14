@@ -10,8 +10,13 @@ const StyledDashboard = styled.div`
   display: flex;
   flex-direction: column;
 
-  h2 {
+  h3 {
     color: var(--grey-0);
+    padding-left: 15px;
+  }
+
+  main {
+    margin-top: 50px;
   }
 
   @media (max-width: 769px) {

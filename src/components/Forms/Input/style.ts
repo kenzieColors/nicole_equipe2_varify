@@ -21,9 +21,8 @@ export const StyledTextField = styled(TextField)`
   input {
     background-color: var(--grey-100);
     border-radius: 8px;
+    color: var(--grey-0);
 
-    color: var(--grey-600);
-    
     padding: 14px 12px;
   }
   label {
