@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
   /* margin: 10px; */
@@ -13,8 +13,23 @@ export const StyledButton = styled.button`
   color: var(--grey-400);
   /* display: flex; */
 
-  :hover{
+  :hover {
     filter: brightness(0.9);
     color: var(--grey-100);
   }
+  :disabled {
+    background-color: var(--grey-200);
+  }
+
+  ${({ disabled }) => {
+    if (disabled) {
+      return css`
+        :hover {
+          filter: none;
+          color: var(--grey-400);
+          cursor: auto;
+        }
+      `;
+    }
+  }};
 `;

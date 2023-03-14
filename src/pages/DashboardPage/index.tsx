@@ -10,7 +10,6 @@ import StyledDashboard from "./style";
 const DashboardPage = () => {
   const { userID, requestUserSavedVars, user, userLogout } =
     useContext(UserContext);
-  console.log(user);
 
   const navigate = useNavigate();
 

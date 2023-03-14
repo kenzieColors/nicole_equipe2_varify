@@ -11,12 +11,15 @@ import TextField from "@mui/material/TextField";
 import { LogoLink, TopLink } from "../../components/Header/style";
 import varify from "../../assets/varify.png";
 import { UserContext } from "../../providers/UserContext";
+import { ToastifyContext } from "../../providers/ToastifyContext";
 
 const LandingPage = () => {
   const { variables, setVarColors, setVarSizes, globalVarGenerator } =
     useContext(VarContext);
 
   const { user, userID, saveUserVars } = useContext(UserContext);
+
+  const { toastify } = useContext(ToastifyContext);
 
   const [value, copy] = useCopyToClipboard();
 
@@ -53,7 +56,8 @@ const LandingPage = () => {
         </h2>
 
         <p>
-          a plataforma que vai otimizar a maneira de criar variáveis de estilização.
+          a plataforma que vai otimizar a maneira de criar variáveis de
+          estilização.
         </p>
       </StyledSection>
 
@@ -145,6 +149,7 @@ const LandingPage = () => {
               type="button"
               onClickFunction={() => {
                 copy(globalVarGenerator(variables));
+                toastify("success", "Variáveis copiadas com sucesso");
               }}
             >
               Copiar variáveis

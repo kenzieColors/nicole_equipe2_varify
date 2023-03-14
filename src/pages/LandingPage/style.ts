@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { FieldSet } from "../../components/Forms/Input/style";
 
 export const StyledMain = styled.main`
   width: 100%;
@@ -83,6 +82,7 @@ export const StyledMain = styled.main`
     }
     .boxTextField {
       background-color: var(--grey-300);
+
       color: var(--grey-0);
 
       border-radius: var(--radius-default);
@@ -105,6 +105,9 @@ export const StyledMain = styled.main`
 `;
 
 export const StyledSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
   padding: 20px;
 
