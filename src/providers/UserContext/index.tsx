@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import {
@@ -9,11 +9,16 @@ import {
   ILoginFormValues,
   IUserSavedVars,
   IVariables,
+  IResponseLoginRegister,
+  IResponseUserVar,
 } from "../@types";
+import { ToastifyContext } from "../ToastifyContext";
 
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
+  const { toastify } = useContext(ToastifyContext);
+
   const [user, setUser] = useState<IUser | null>(null);
   const [userVars, setUserVars] = useState<IUserSavedVars[]>([]);
   const userToken = localStorage.getItem("@Token");
@@ -22,31 +27,40 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const userRegister = async (formData: IRegisterFormValues) => {
     try {
-      await api.post("/register", formData);
-      //adicionar toast de confirmação
+      const response = await api.post<IResponseLoginRegister>(
+        "/register",
+        formData
+      );
+      toastify(
+        "success",
+        "Registro feito com sucesso, redirecionado para a página de login"
+      );
       navigate("/login");
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toastify("error", error.response.data);
     }
   };
 
   const userLogin = async (formData: ILoginFormValues) => {
     try {
-      const response = await api.post("/login", formData);
+      const response = await api.post<IResponseLoginRegister>(
+        "/login",
+        formData
+      );
       setUser(response.data.user);
       localStorage.setItem("@Token", response.data.accessToken);
-      localStorage.setItem("@ID", response.data.user.id);
-      //adicionar toast de confirmação
+      localStorage.setItem("@ID", JSON.stringify(response.data.user.id));
+      toastify("success", "Login efetuado com sucesso!");
       navigate("/");
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toastify("error", error.response.data);
     }
   };
 
   const userLogout = () => {
     setUser(null);
     localStorage.removeItem("@Token");
-    //adicionar toast de confirmação
+    toastify("default", "Você se desconectou");
     navigate("/");
   };
 
@@ -58,9 +72,8 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         },
       });
       setUserVars(response.data);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      toastify("error", error.response.data);
     }
   };
 
@@ -75,11 +88,12 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
           },
         }
       );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+      toastify("success", "Variáveis salvas na sua área de usuário");
+    } catch (error: any) {
+      toastify("error", error.response.data);
     }
   };
+
   return (
     <UserContext.Provider
       value={{

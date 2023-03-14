@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const StyledRegisterForm = styled.form`
   display: flex;
@@ -10,19 +9,17 @@ const StyledRegisterForm = styled.form`
   button {
     height: 48px;
     padding: 10px 22px;
-    background-color: var(--grey-300);
-    border: 1px solid var(--grey-0);
+    background-color: var(--color-sec-orange);
+    border: none;
     border-radius: var(--radius-default);
     color: var(--grey-0);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1rem;
-    width: fit-content;
-    align-self: center;
+    width: 100%;
 
     :hover{
-      background-color: #F8F9FA50;
-      border: 1px solid #F8F9FA50;
-      color: var(--grey-200);
+      filter: brightness(0.9);
+      color: var(--color-brand-4);
     }
   }
 
