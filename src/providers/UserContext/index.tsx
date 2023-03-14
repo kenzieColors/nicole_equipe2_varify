@@ -60,6 +60,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const userLogout = () => {
     setUser(null);
     localStorage.removeItem("@Token");
+    localStorage.removeItem("@ID");
     toastify("default", "Você se desconectou");
     navigate("/");
   };
