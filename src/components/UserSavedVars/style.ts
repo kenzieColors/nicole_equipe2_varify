@@ -7,6 +7,16 @@ const StyledUserSavedVars = styled.ul`
   border-radius: var(--radius-default);
 
   min-width: 260px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+  }
 `;
 
 export default StyledUserSavedVars;

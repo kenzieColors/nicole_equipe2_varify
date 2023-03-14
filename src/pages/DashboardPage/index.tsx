@@ -8,7 +8,8 @@ import UserSavedVars from "../../components/UserSavedVars";
 import StyledDashboard from "./style";
 
 const DashboardPage = () => {
-  const { userToken, userID, requestUserSavedVars } = useContext(UserContext);
+  const { userID, requestUserSavedVars, user } = useContext(UserContext);
+  console.log(user);
 
   const navigate = useNavigate();
 
@@ -32,15 +33,15 @@ const DashboardPage = () => {
           </div>
 
           <nav>
-            <TopLink href="/">Logout</TopLink>
+            <TopLink href="/">Home</TopLink>
           </nav>
         </div>
       </Header>
 
-      <section>
-        <h2 className="title-1">Saved Variables</h2>
+      <main>
+        <h3 className="title-1">Saved Variables</h3>
         <UserSavedVars />
-      </section>
+      </main>
     </StyledDashboard>
   );
 };

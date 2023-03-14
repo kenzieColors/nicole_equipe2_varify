@@ -5,7 +5,8 @@ import StyledUserSavedVars from "./style";
 import UserSavedVarsCard from "./UserSavedVarsCard";
 
 const UserSavedVars = () => {
-  const { userID, userVars, requestUserSavedVars } = useContext(UserContext);
+  const { userID, userVars, setUserVars, requestUserSavedVars } =
+    useContext(UserContext);
 
   useEffect(() => {
     userID ? requestUserSavedVars(userID) : null;
@@ -18,7 +19,7 @@ const UserSavedVars = () => {
           return <UserSavedVarsCard {...savedVar} key={savedVar.id} />;
         })
       ) : (
-        <p>No saved variables yet.</p>
+        <li>No saved variables yet.</li>
       )}
     </StyledUserSavedVars>
   );
