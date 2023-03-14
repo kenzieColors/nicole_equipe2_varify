@@ -59,7 +59,6 @@ const LandingPage = () => {
           a plataforma que vai otimizar a maneira de criar variáveis de
           estilização.
         </p>
-        {userID ? <TopLink href="/dashboard">Sessão do usuário</TopLink> : null}
       </StyledSection>
 
       <StyledMain>
