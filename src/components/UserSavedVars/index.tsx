@@ -18,7 +18,7 @@ const UserSavedVars = () => {
           return <UserSavedVarsCard {...savedVar} key={savedVar.id} />;
         })
       ) : (
-        <p>No saved variables yet.</p>
+        <li>No saved variables yet.</li>
       )}
     </StyledUserSavedVars>
   );

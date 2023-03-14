@@ -23,21 +23,22 @@ const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
 
   return (
     <StyledUserSavedVarsCards>
-      <p style={{ backgroundColor: colorPrimiryCardBack }}>
-        {favorite?.colorPrimary}
-      </p>
-      <p style={{ backgroundColor: colorSecondaryCardBack }}>
-        {favorite?.colorSecondary}
-      </p>
-      <p style={{ backgroundColor: colorTertiaryCardBack }}>
-        {favorite?.colorTertiary}
-      </p>
-
-      <button className="button__clipboard">
-        <img src={copyIcon} alt="copy to clipboard" />
-      </button>
+      <div className="content__wrapper">
+        <p style={{ backgroundColor: colorPrimiryCardBack }}>
+          {favorite?.colorPrimary}
+        </p>
+        <p style={{ backgroundColor: colorSecondaryCardBack }}>
+          {favorite?.colorSecondary}
+        </p>
+        <p style={{ backgroundColor: colorTertiaryCardBack }}>
+          {favorite?.colorTertiary}
+        </p>
+      </div>
       <button className="button__delete">
         <img src={trashIcon} alt="delete saved variables" />
+      </button>
+      <button className="button__clipboard">
+        <img src={copyIcon} alt="copy to clipboard" />
       </button>
     </StyledUserSavedVarsCards>
   );

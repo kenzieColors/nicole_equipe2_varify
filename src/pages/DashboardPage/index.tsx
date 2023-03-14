@@ -8,7 +8,8 @@ import UserSavedVars from "../../components/UserSavedVars";
 import StyledDashboard from "./style";
 
 const DashboardPage = () => {
-  const { userToken, userID, requestUserSavedVars } = useContext(UserContext);
+  const { userID, requestUserSavedVars, user } = useContext(UserContext);
+  console.log(user);
 
   const navigate = useNavigate();
 
@@ -22,25 +23,25 @@ const DashboardPage = () => {
 
   return (
     <StyledDashboard>
-      {/* <Header>
+      <Header>
         <div className="container">
-          <div>
+          <div className="logo">
             <LogoLink to="/">
               <img src={varify} alt="" className="logo" />
+              varify
             </LogoLink>
           </div>
 
           <nav>
-            <TopLink href="/register">Cadastre-se</TopLink>
-            <TopLink href="/login">Login</TopLink>
+            <TopLink href="/">Home</TopLink>
           </nav>
         </div>
-      </Header> */}
+      </Header>
 
-      <section>
-        <h2 className="title-1">Saved Variables</h2>
+      <main>
+        <h3 className="title-1">Saved Variables</h3>
         <UserSavedVars />
-      </section>
+      </main>
     </StyledDashboard>
   );
 };

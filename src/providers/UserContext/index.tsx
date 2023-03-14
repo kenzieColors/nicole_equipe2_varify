@@ -18,7 +18,6 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [userVars, setUserVars] = useState<IUserSavedVars[]>([]);
   const userToken = localStorage.getItem("@Token");
   const userID = localStorage.getItem("@ID");
-
   const navigate = useNavigate();
 
   const userRegister = async (formData: IRegisterFormValues) => {
@@ -59,6 +58,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         },
       });
       setUserVars(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -68,7 +68,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     try {
       const response = await api.post(
         `/favorites`,
-        { userId: userID, favorites: variables },
+        { userId: userID, favorite: variables },
         {
           headers: {
             Authorization: `Bearer ${userToken}`,
