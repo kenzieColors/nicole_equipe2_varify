@@ -21,6 +21,8 @@ export const TopHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    max-width: 1000px;
   }
 
   @media (min-width: 1000px) {

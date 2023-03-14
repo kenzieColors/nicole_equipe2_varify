@@ -53,7 +53,8 @@ const LandingPage = () => {
         </h2>
 
         <p>
-          a plataforma que vai otimizar a maneira de criar variáveis de estilização.
+          a plataforma que vai otimizar a maneira de criar variáveis de
+          estilização.
         </p>
       </StyledSection>
 
