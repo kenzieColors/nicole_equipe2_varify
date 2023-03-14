@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Checkbox } from "@mui/material";
 import { StyledFieldSet } from "./style";
 
@@ -6,6 +6,7 @@ interface iVarFormProps {
   children: React.ReactNode;
   checkbox?: boolean;
   name: string;
+
   onChangeFunction?: (event: any) => void;
 }
 
@@ -16,6 +17,12 @@ const VarForm = ({
   onChangeFunction,
 }: iVarFormProps) => {
   const [formDisable, setFormDisable] = useState(true);
+
+  useEffect(() => {
+    if (!checkbox) {
+      setFormDisable(false);
+    }
+  }, []);
 
   return (
     <StyledFieldSet disabled={formDisable}>
