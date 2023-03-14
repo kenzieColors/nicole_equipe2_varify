@@ -15,7 +15,7 @@ const VarForm = ({
   name,
   onChangeFunction,
 }: iVarFormProps) => {
-  const [formDisable, setFormDisable] = useState(true);
+  const [formDisable, setFormDisable] = useState(false);
 
   return (
     <StyledFieldSet disabled={formDisable}>
