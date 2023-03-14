@@ -127,6 +127,9 @@ export const StyledSection = styled.section`
     margin-top: 15px;
     line-height: 150%;
   }
+  a {
+    margin-top: 20px;
+  }
 
   @media (min-width: 100px) {
     max-width: 1000px;
