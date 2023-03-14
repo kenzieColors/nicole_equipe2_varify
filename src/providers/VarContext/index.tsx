@@ -64,8 +64,22 @@ export const VarProvider = ({ children }: IVarContextProps) => {
       let variable = entry[0];
       let value = entry[1];
 
-      varResult = `${varResult} 
-      --${variable}: ${value}`;
+      if (variable.toLowerCase().includes("color")) {
+        varResult = `${varResult}
+  --color-${variable.slice(5).toLocaleLowerCase()}: ${value};`;
+      }
+      if (variable.toLowerCase().includes("title")) {
+        varResult = `${varResult}
+  --title-${variable.slice(9).toLocaleLowerCase()}: ${value}rem;`;
+      }
+      if (variable.toLowerCase().includes("text")) {
+        varResult = `${varResult}
+  --text-${variable.slice(8).toLocaleLowerCase()}: ${value}rem;`;
+      }
+      if (variable.toLowerCase().includes("radius")) {
+        varResult = `${varResult}
+  --radius-${variable.slice(10).toLocaleLowerCase()}: ${value}px;`;
+      }
     });
     return varResult;
   };

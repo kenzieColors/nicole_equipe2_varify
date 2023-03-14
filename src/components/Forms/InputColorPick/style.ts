@@ -36,7 +36,8 @@ export const FieldSet = styled.fieldset`
 export const StyledTextField = styled(TextField)`
   width: 100%;
   input {
-    background-color: #3f3f3f;
+    background-color: var(--grey-100);
+    color: var(--grey-0);
     border-radius: 8px;
 
     padding: 14px 12px;

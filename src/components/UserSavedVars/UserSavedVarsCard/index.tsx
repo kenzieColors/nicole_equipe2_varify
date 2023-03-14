@@ -5,8 +5,11 @@ import copyIcon from "../../../assets/copy.svg";
 import trashIcon from "../../../assets/trash.svg";
 import { useCopyToClipboard } from "usehooks-ts";
 import { VarContext } from "../../../providers/VarContext";
+import { ToastifyContext } from "../../../providers/ToastifyContext";
 
 const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
+  const { toastify } = useContext(ToastifyContext);
+
   const [colorPrimiryCardBack, setcolorPrimiryCardBack] = useState<
     string | undefined
   >("");
@@ -49,6 +52,7 @@ const UserSavedVarsCard = ({ favorite }: IUserSavedVars) => {
           alt="copy to clipboard"
           onClick={() => {
             copy(globalVarGenerator(favorite));
+            toastify("success", "Variáveis copiadas com sucesso");
           }}
         />
       </button>
